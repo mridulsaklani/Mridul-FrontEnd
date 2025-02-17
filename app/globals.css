@@ -17,18 +17,36 @@
 
 html{
   
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
 }
+
+
 
 /* body::-webkit-scrollbar{
   display: none;
 } */
 /* ------------- CUSTOM CSS ------------ */
 
+::-webkit-scrollbar {
+  width: 6px;
+  height: 5px;
+  cursor: grab !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2563EB;
+  border-radius: 10px;
+}
+
 
 body {
   font-family: 'Nunito' !important;
   background-color: #0f172a; 
+  cursor: auto !important;
 }
 
 h2{
@@ -183,3 +201,13 @@ h2{
     transform: translateX(0);
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .border-right{
+    border-right: none !important;
+  }
+  .border-white{
+    border-right: none !important;
+  }
+}
+  

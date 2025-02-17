@@ -5,6 +5,8 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 
 const Footer = () => {
+
+  const year = new Date().getFullYear();
   return (
     <div className="footer py-6 pr-5 pl-5">
       <div className="max-w-7xl m-auto flex items-center">
@@ -19,7 +21,7 @@ const Footer = () => {
             <h4 className=" text-sm lg:text-xl font-bold text-white">Mridul Singh Saklani</h4>
           </Link>
           <p className="text-neutral-400 text-sm">
-            &copy; 2024 | <Link href="/" className="underline">mridulsinghsaklani.com</Link>
+            &copy; {year} | <Link href="/" className="underline">mridulsinghsaklani.com</Link>
           </p>
         </div>
         <div className="w-2/5 lg:w-1/2 flex justify-end items-center ">
