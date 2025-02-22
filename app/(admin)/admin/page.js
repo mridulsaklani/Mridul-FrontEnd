@@ -2,6 +2,7 @@
 import React,{useState, useEffect} from 'react'
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import axios from 'axios';
 
 const Page = () => {
 
@@ -21,6 +22,20 @@ const Page = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  try{
+
+    axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}user/login`, formData, {
+      headers: {
+        "Content-Type": "application/json",
+      }
+    },{withCredentials: true}).then(res=>console.log(res)).catch(err=>console.log(err.message))
+    
+    setFormData({email:"", password:""})
+  }
+  catch(err){
+    console.log(err.message)
+  }
+    
   }
 
   return (
@@ -32,8 +47,8 @@ const Page = () => {
                  <input className='w-full bg-transparent text-white p-3 rounded-md outline-none border' type="email" name="email" required placeholder='Email'  onChange={handleChange} value={formData.email} />
                   
                  <div className='bg-transparent flex items-center gap-2 p-3 border rounded-md'>
-                  {passShow ? <input className='w-full text-white  bg-transparent rounded-md outline-none' type="password" name="password" required placeholder='Password' /> :
-                  <input className='w-full text-white  bg-transparent rounded-md outline-none ' type="text" name="password" required placeholder='Password' />}
+                  {passShow ? <input className='w-full text-white  bg-transparent rounded-md outline-none' type="password" name="password" required placeholder='Password' value={formData.password} onChange={handleChange} /> :
+                  <input className='w-full text-white  bg-transparent rounded-md outline-none ' type="text" name="password" required placeholder='Password' value={formData.password} onChange={handleChange}/>}
                   {passShow?<FaEye onClick={()=>setPassShow(!passShow)}/>:<FaEyeSlash onClick={()=>setPassShow(!passShow)} />}
                  </div>
                  <button className='bg-blue-600 text-white p-3 rounded-md' type="submit">Login</button>

@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ChatBot from "@/components/ChatBot";
 
 
 
@@ -22,7 +23,7 @@ export default function UserLayout({ children }) {
       >
         
     <Navbar/>
-       
+       <ChatBot/>
         {children}
         <Footer/>
 

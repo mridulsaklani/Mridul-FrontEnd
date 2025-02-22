@@ -169,6 +169,20 @@ h2{
   margin-right: -100%;
 }
 
+.bot::before{
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  z-index: 30;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: #2563EB;
+  
+  animation: bot 3s linear infinite;
+}
+
 
 @keyframes cycle {
   0%{
@@ -202,6 +216,17 @@ h2{
   }
 }
 
+@keyframes bot {
+  0%{
+    transform: scale(.8);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .border-right{
     border-right: none !important;
@@ -210,4 +235,6 @@ h2{
     border-right: none !important;
   }
 }
+
+
   
