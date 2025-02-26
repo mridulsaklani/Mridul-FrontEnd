@@ -1,9 +1,13 @@
-import React from 'react'
+"use client"
+import React, {useState, useEffect} from 'react'
 import Image from 'next/image'
 import { IoHomeOutline } from "react-icons/io5";
 import MainDashboard from './components/MainDashboard';
 import { IoIosNotifications } from "react-icons/io";
+import { SiBloglovin } from "react-icons/si";
+import { FaFolderPlus } from "react-icons/fa";
 import Quotes from './components/Quotes';
+import AddBlog from './components/AddBlog';
 
 const page = () => {
   return (
@@ -19,8 +23,16 @@ const page = () => {
 
           </Image>
 
-          <ul className='mt-10 flex flex-col gap-2'>
+          <ul className='mt-10 flex flex-col gap-6'>
             <li className='text-white flex items-center gap-3 text-lg'> <IoHomeOutline className='text-xl'/> Dashboard</li>
+            <li className='text-white flex flex-col gap-3 text-lg'> <button className='text-white flex  gap-3 text-lg' type='button'> <SiBloglovin className='text-xl'/> Blogs </button>
+               <ul className='flex flex-col gap-5 pl-4'>
+
+                 <li className='text-white flex items-center gap-3 text-lg'> <FaFolderPlus className='text-xl'/> Add Blog</li>
+                 <li className='text-white flex items-center gap-3 text-lg'> <IoHomeOutline className='text-xl'/> All Blogs</li>
+                 
+               </ul>
+            </li>
           </ul>
         </div>
         <div className="pl-[275px] relative">
@@ -34,6 +46,7 @@ const page = () => {
 
           <MainDashboard/>
           <Quotes/>
+          <AddBlog/>
           </div>
         </div>
 

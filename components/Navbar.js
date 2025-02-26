@@ -18,12 +18,15 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import axios from "axios";
 import Cookies from 'js-cookie';
 
+// Toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Navbar = () => {
  
 //  States start
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [showProfile, setShowProfile] = useState(false);
   const [popupShow, setPopupShow] = useState(false);
   const [showGreate, setShowGreate] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
@@ -84,7 +87,7 @@ const Navbar = () => {
 
   const pathname = usePathname();
 
-  const rounter = useRouter();
+  const router = useRouter();
  
 
   const [menushow, setmenushow] = useState(false);
@@ -95,27 +98,43 @@ const Navbar = () => {
     setmenushow(false);
   };
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
-  
-    axios.post(
-      `${process.env.NEXT_PUBLIC_SERVER_URL}user/login`,
-      signInData,
-      {
-        withCredentials: true,
+    
+    try {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}user/login`,
+        signInData,
+        { withCredentials: true }
+      );
+      
+      if (res.data.token) {
+        Cookies.set("token", res.data.token); 
+        setIsLoggedIn(true);
+        setShowSignUp(false);
       }
-    )
-    .then((res) => {
-      console.log("Login successful:", res.data);
-      // router.push("/dashboard") or whatever your route is
-    })
-    .catch((err) => {
-      console.error("Login error:", err.message);
-    });
+    } catch (err){
+      console.log("Login error:", err.message);
+      toast.info('Sorry, you are not logged in, Please check your ID or Password', {
+            position: 'top-right',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            theme: 'colored',
+          });
+          router.push('/')
+    }
   
     setSignInData({ email: "", password: "" });
-    setShowSignUp(false);
   };
+
+  const handleLogout = () => {
+    Cookies.remove("token");
+    setIsLoggedIn(false);
+  };
+  
   
   return (
     <>
@@ -406,13 +425,22 @@ const Navbar = () => {
             </button>
             <div>
                
-                <button
-                 
-                  className="py-3 px-8 rounded-lg bg-blue-600 text-nowrap flex items-center gap-2 text-white transition-all hover:bg-white hover:text-blue-600"
-                  onClick={()=>setShowSignUp(true)}
-                >
-                  <LuLogIn className="text-xl" /> Sign in
-                </button>
+            {isLoggedIn ? (
+  <button
+    onClick={handleLogout}
+    className="py-3 px-8 rounded-lg bg-blue-600 text-white hover:bg-white hover:text-blue-600 transition-all flex  gap-2 items-center"
+  >
+    <PiSignOutBold className="text-xl" /> Log Out
+  </button>
+) : (
+  <button
+    onClick={() => setShowSignUp(true)}
+    className="py-3 px-8 rounded-lg bg-blue-600 text-white hover:bg-white hover:text-blue-600 transition-all flex  gap-2 items-center"
+  >
+    <LuLogIn className="text-xl" /> Log In
+  </button>
+)}
+
             
             </div>
             

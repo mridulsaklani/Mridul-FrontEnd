@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FiGithub } from "react-icons/fi";
 
 const Footer = () => {
@@ -27,17 +27,17 @@ const Footer = () => {
         <div className="w-2/5 lg:w-1/2 flex justify-end items-center ">
           <ul className="flex items-center gap-2 lg:gap-3 ">
             <li >
-              <Link href="https://facebook.com" className="h-8 w-8 lg:h-9 lg:w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl">
-                <FaFacebookF className='text-lg lg:text-base' />
+              <Link href="https://www.linkedin.com/in/mridul-singh-saklani?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " target='_blank' className="h-8 w-8 lg:h-9 lg:w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl">
+                <FaLinkedinIn className='text-lg lg:text-base' />
               </Link>
             </li>
             <li >
-              <Link href="https://instagram.com" className="h-8 w-8 lg:h-9 lg:w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl">
+              <Link href="https://instagram.com" target='_blank' className="h-8 w-8 lg:h-9 lg:w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl">
                 <FaInstagram className='text-lg lg:text-base'/>
               </Link>
             </li>
             <li >
-              <Link href="https://github.com" className="h-8 w-8 lg:h-9 lg:w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl">
+              <Link href="https://github.com/mridulsaklani" target='_blank' className="h-8 w-8 lg:h-9 lg:w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl">
                 <FiGithub className='text-lg lg:text-base'/>
               </Link>
             </li>
