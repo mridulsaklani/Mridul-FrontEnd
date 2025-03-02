@@ -18,6 +18,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import axios from "axios";
 import Cookies from 'js-cookie';
 
+
 // Toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -44,11 +45,11 @@ const Navbar = () => {
   });
 
   const [showPass, setShowPass] = useState(false);
-
+ 
 
   // States End
 
- 
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -112,10 +113,19 @@ const Navbar = () => {
         Cookies.set("token", res.data.token); 
         setIsLoggedIn(true);
         setShowSignUp(false);
+        toast.success('You are logged in successfully', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          theme: 'colored',
+        });
       }
     } catch (err){
       console.log("Login error:", err.message);
-      toast.info('Sorry, you are not logged in, Please check your ID or Password', {
+      toast.error('Sorry, you are not logged in, Please check your ID or Password', {
             position: 'top-right',
             autoClose: 3000,
             hideProgressBar: false,
@@ -130,14 +140,47 @@ const Navbar = () => {
     setSignInData({ email: "", password: "" });
   };
 
-  const handleLogout = () => {
-    Cookies.remove("token");
-    setIsLoggedIn(false);
+  const handleLogout = async() => {
+
+    try {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}user/logout`, 
+        {},
+        { withCredentials: true }
+      )
+      if(response.status === 200) {
+        setIsLoggedIn(false);
+        router.push('/');
+        toast.success('You logged out successfully', {
+          position: 'top-right',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          theme: 'colored',
+        });
+      }
+    } catch (error) {
+      console.log(error.message);
+      toast.error('token not deleted', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        theme: 'colored',
+      });
+    }
+    
+    
+    
   };
   
   
   return (
     <>
+   
       {popupShow && (
         <div className="blur-overlay w-full h-full fixed top-0 left-0 backdrop-blur-lg z-30"></div>
       )}
@@ -226,7 +269,7 @@ const Navbar = () => {
       {showSignUp && <div className="blur-overlay w-full h-full fixed top-0 left-0 backdrop-blur-lg z-30"></div>}
       {showSignUp && <div className="fixed w-[650px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40 p-8 background rounded-lg">
 
-          <h2 className="text-xl font-bold text-white pb-4"> Sign Up </h2>
+          <h2 className="text-xl font-bold text-white pb-4"> Sign In </h2>
           <span className="absolute top-4 right-4 text-white" onClick={()=>setShowSignUp(false)}>
                 <FaXmark className="text-2xl cursor-pointer" />
               </span>
@@ -247,6 +290,8 @@ const Navbar = () => {
           </form>
      
       </div>}
+
+      <ToastContainer />
 
       {/* ------------- Side Menu START------------------ */}
 
@@ -401,6 +446,20 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
+                    href="/flashback"
+                    prefetch={true}
+                    className={`${
+                      pathname === "/flashback"
+                        ? " text-blue-600"
+                        : "text-neutral-200"
+                    } hover:text-blue-600 transition-all flex relative pr-3`}
+                  >
+                    Flashback
+                   
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/blogs"
                     prefetch={true}
                     className={`${
@@ -412,6 +471,19 @@ const Navbar = () => {
                     Blogs
                   </Link>
                 </li>
+                {isLoggedIn && <li>
+                  <Link
+                    href="/profile"
+                    prefetch={true}
+                    className={`${
+                      pathname === "/profile"
+                        ? " text-blue-600"
+                        : "text-neutral-200"
+                    } hover:text-blue-600 transition-all`}
+                  >
+                    Profile
+                  </Link>
+                </li>}
               </ul>
             </nav>
           </div>

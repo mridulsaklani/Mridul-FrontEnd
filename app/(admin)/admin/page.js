@@ -49,22 +49,23 @@ const Page = () => {
         Cookies.set("admin", response.data.token);
         setFormData({ email: "", password: "" });
         router.push("/dashboard");
-      } else {
-        toast.success("You are not login", {
-          position: "top-right",
-          draggable: true,
-          autoClose: 3500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          theme: "colored",
-          style: {
-            backgroundColor: "red",
-          },
-        });
-      }
+      } 
+      
     } catch (err) {
       console.log(err.message);
+      toast.error("You are not login", {
+        position: "top-right",
+        draggable: true,
+        autoClose: 3500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        theme: "colored",
+        style: {
+          backgroundColor: "red",
+        },
+      });
+      setFormData({ email: "", password: "" });
     }
   };
 

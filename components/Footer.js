@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FiGithub } from "react-icons/fi";
 
 const Footer = () => {
@@ -32,8 +33,8 @@ const Footer = () => {
               </Link>
             </li>
             <li >
-              <Link href="https://instagram.com" target='_blank' className="h-8 w-8 lg:h-9 lg:w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl">
-                <FaInstagram className='text-lg lg:text-base'/>
+              <Link href="https://x.com/SaklaniMridul?t=CdL8Iepe8SST-h0QY-Ek-A&s=09" target='_blank' className="h-8 w-8 lg:h-9 lg:w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl">
+                <FaXTwitter className='text-lg lg:text-base'/>
               </Link>
             </li>
             <li >

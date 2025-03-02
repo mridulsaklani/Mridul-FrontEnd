@@ -1,28 +1,36 @@
 import { NextResponse } from "next/server";
+import { NextRequest } from "next/server"
 
-export function middleware(req) {
+export function middleware(NextRequest) {
 
-    const token = req.cookies.get("admin")?.value;
-    const user = req.cookies.get("token")?.value;
+    const token = NextRequest.cookies.get("admin")?.value;
+    const user = NextRequest.cookies.get("token")?.value;
    
 
-    if (req.nextUrl.pathname.startsWith("/dashboard")) {
+    if (NextRequest.nextUrl.pathname.startsWith("/dashboard")) {
         if (!token) {
             
-            return NextResponse.redirect(new URL("/admin", req.url));
+            return NextResponse.redirect(new URL("/admin", NextRequest.url));
         }
     }
 
-    if (req.nextUrl.pathname.startsWith("/notes")) {
+    if (NextRequest.nextUrl.pathname.startsWith("/notes")) {
         if(!user){
-            return NextResponse.redirect(new URL('/', req.url))
+            return NextResponse.redirect(new URL('/', NextRequest.url))
         }
     }
+
+    if (NextRequest.nextUrl.pathname.startsWith("/profile")){
+        if(!user){
+            return NextResponse.redirect(new URL("/",  NextRequest.url))
+        }
+    }
+
     return NextResponse.next();
 }
 
 export const config = {
-    matcher: ["/dashboard/:path*", "/notes/:path*"],
+    matcher: ["/dashboard/:path*", "/notes/:path*", "/profile/:path*"],
 };
 
 
