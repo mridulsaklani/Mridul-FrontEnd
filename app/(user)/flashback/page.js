@@ -1,4 +1,5 @@
-import Galleries from '@/components/galleries'
+import Galleries from '@/components/Galleries'
+
 import React from 'react'
 
 const page = () => {

@@ -8,6 +8,7 @@ import { SiBloglovin } from "react-icons/si";
 import { FaFolderPlus } from "react-icons/fa";
 import Quotes from './components/Quotes';
 import AddBlog from './components/AddBlog';
+import AddTimeline from './components/AddTimeline';
 
 const page = () => {
   return (
@@ -47,6 +48,7 @@ const page = () => {
           <MainDashboard/>
           <Quotes/>
           <AddBlog/>
+          <AddTimeline/>
           </div>
         </div>
 

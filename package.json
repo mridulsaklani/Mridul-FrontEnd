@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.6",
     "@reduxjs/toolkit": "^2.3.0",
     "@tailwindcss/typography": "^0.5.15",
     "aos": "^2.3.4",
