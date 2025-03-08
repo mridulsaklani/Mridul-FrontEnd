@@ -106,7 +106,12 @@ const Navbar = () => {
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}user/login`,
         signInData,
-        { withCredentials: true }
+        { 
+          withCredentials: true, 
+           headers: {
+          "Content-Type": "application/json",
+        } },
+        
       );
       
       if (res.data.token) {
