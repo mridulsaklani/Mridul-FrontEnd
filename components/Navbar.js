@@ -67,7 +67,7 @@ const Navbar = () => {
     e.preventDefault();
     dispatch(adduser(userData));
 
-    axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}quote`, userData)
+    axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/quote`, userData)
     .then(res=>console.log("quote created sexfully"))
     .catch(err=>console.log(err.message))
 
@@ -104,7 +104,7 @@ const Navbar = () => {
     
     try {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}user/login`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/user/login`,
         signInData,
         { 
           withCredentials: true, 
@@ -148,7 +148,7 @@ const Navbar = () => {
   const handleLogout = async() => {
 
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}user/logout`, 
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/logout`, 
         {},
         { withCredentials: true }
       )
