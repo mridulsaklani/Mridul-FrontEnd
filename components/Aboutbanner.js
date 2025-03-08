@@ -31,7 +31,7 @@ const Aboutbanner = () => {
             height={360}
             quality={100}
             alt="Mridul Singh Saklani"
-          > </Image>
+          /> 
         </div>
       </div>
     </>
