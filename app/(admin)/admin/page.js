@@ -27,7 +27,7 @@ const Page = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}user/login`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/user/login`,
         formData,
         {
           headers: {

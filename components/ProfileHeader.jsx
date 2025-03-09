@@ -12,7 +12,7 @@ const ProfileHeader = () => {
 
     const getUser = async()=>{
         try {
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}user/userdata`,
+            const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/userdata`,
                 {withCredentials: true});
                 if(response.status === 200){
                     setUserData(response.data);
