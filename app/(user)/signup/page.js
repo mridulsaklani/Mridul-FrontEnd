@@ -52,7 +52,7 @@ const Page = () => {
 
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}user`,
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/user`,
         formDataToSend,
         {
           headers: {
