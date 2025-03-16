@@ -102,13 +102,13 @@ const Page = () => {
   return (
     <>
     <ToastContainer />
-    <div className="min-h-screen">
-      <div className="fixed w-[650px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 p-10 rounded-lg border-[1px] background">
+    <div className="min-h-screen flex justify-center items-center p-5">
+      <div className=" w-full md:w-[520px] lg:w-[650px] top-1/2 relative  p-6 lg:p-10 rounded-lg border-[1px] background">
         <h2 className="text-white font-bold pb-4">Sign Up</h2>
         <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap md:flex-nowrap gap-3">
             <input
-              className="w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
+              className="w-full lg:w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
               value={formData.name}
               onChange={handleChange}
               type="text"
@@ -117,7 +117,7 @@ const Page = () => {
               placeholder="Name"
             />
             <input
-              className="w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
+              className="w-full lg:w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
               value={formData.email}
               onChange={handleChange}
               type="email"
@@ -126,9 +126,9 @@ const Page = () => {
               placeholder="Email"
             />
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap md:flex-nowrap gap-3">
             <input
-              className="w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
+              className="w-full lg:w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
               value={formData.phone}
               onChange={handleChange}
               type="number"
@@ -136,7 +136,7 @@ const Page = () => {
               id="phone"
               placeholder="Phone"
             />
-            <div className="w-1/2 bg-transparent text-white p-3 rounded-md border flex items-center">
+            <div className="w-full lg:w-1/2 bg-transparent text-white p-3 rounded-md border flex items-center">
               <input
                 className="w-full outline-none bg-transparent"
                 value={formData.password}
@@ -159,10 +159,10 @@ const Page = () => {
               )}
             </div>
           </div>
-          <div className="flex gap-3">
+          <div className="flex flex-wrap md:flex-nowrap gap-3">
             <input
               type="date"
-              className="w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
+              className="w-full lg:w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
               value={formData.dob}
               onChange={handleChange}
               name="dob"
@@ -171,7 +171,7 @@ const Page = () => {
             />
             <input
               type="file"
-              className="w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
+              className="w-full lg:w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
               onChange={imageHandler}
               name="image"
               id="image"
