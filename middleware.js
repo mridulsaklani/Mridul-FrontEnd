@@ -1,27 +1,21 @@
 import { NextResponse } from "next/server";
-import { NextRequest } from "next/server"
+
 
 export function middleware(NextRequest) {
 
-    const token = NextRequest.cookies.get("admin")?.value;
-    const user = NextRequest.cookies.get("token")?.value;
+    const token = NextRequest.cookies.get("accessToken")?.value;
+    
    
-
     if (NextRequest.nextUrl.pathname.startsWith("/dashboard")) {
         if (!token) {
             
-            return NextResponse.redirect(new URL("/admin", NextRequest.url));
+            return NextResponse.redirect(new URL("/", NextRequest.url));
         }
     }
 
-    if (NextRequest.nextUrl.pathname.startsWith("/notes")) {
-        if(!user){
-            return NextResponse.redirect(new URL('/', NextRequest.url))
-        }
-    }
 
     if (NextRequest.nextUrl.pathname.startsWith("/profile")){
-        if(!user){
+        if(!token){
             return NextResponse.redirect(new URL("/",  NextRequest.url))
         }
     }
@@ -30,7 +24,7 @@ export function middleware(NextRequest) {
 }
 
 export const config = {
-    matcher: ["/dashboard/:path*", "/notes/:path*", "/profile/:path*"],
+    matcher: ["/dashboard/:path*",  "/profile/:path*"],
 };
 
 

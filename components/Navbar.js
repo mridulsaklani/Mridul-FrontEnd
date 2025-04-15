@@ -22,7 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
   //  States start
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [popupShow, setPopupShow] = useState(false);
   const [showGreate, setShowGreate] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
@@ -102,11 +102,28 @@ const Navbar = () => {
     setmenushow(false);
   };
 
+  const VerifyAuth = async()=>{
+    try {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/auth/verify`, {withCredentials: true})
+      if(response.data.isAuthenticated){
+        setIsAuthenticated(true)
+      }
+    } catch (error) {
+      
+      setIsAuthenticated(false)
+    }
+  }
+
+  useEffect(() => {
+    VerifyAuth()
+  }, [])
+  
+
   const handleSignIn = async (e) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(
+      const response = await axios.post(
         `${process.env.NEXT_PUBLIC_SERVER_URL}/user/login`,
         signInData,
         {
@@ -117,9 +134,8 @@ const Navbar = () => {
         }
       );
 
-      if (res.data.token) {
-        Cookies.set("token", res.data.token);
-        setIsLoggedIn(true);
+      if (response.status === 200) {        
+
         setShowSignUp(false);
         toast.success("You are logged in successfully", {
           position: "top-right",
@@ -159,8 +175,9 @@ const Navbar = () => {
         { withCredentials: true }
       );
       if (response.status === 200) {
-        setIsLoggedIn(false);
+        
         router.push("/");
+        setIsAuthenticated(false);
         toast.success("You logged out successfully", {
           position: "top-right",
           autoClose: 3000,
@@ -411,21 +428,7 @@ const Navbar = () => {
                   Skills
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/notes"
-                  prefetch={true}
-                  className={`${
-                    pathname === "/notes"
-                      ? " text-blue-600"
-                      : "text-neutral-200"
-                  } hover:text-blue-600 transition-all flex relative pr-3`}
-                  onClick={() => setmenushow(false)}
-                >
-                  My Notes{" "}
-                  <FaLock className="lock absolute top-0 right-0 text-sm text-blue-600" />
-                </Link>
-              </li>
+             
               <li>
                 <Link
                   href="/blogs"
@@ -497,20 +500,7 @@ const Navbar = () => {
                     Skills
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/notes"
-                    prefetch={true}
-                    className={`${
-                      pathname === "/notes"
-                        ? " text-blue-600"
-                        : "text-neutral-200"
-                    } hover:text-blue-600 transition-all flex relative pr-3`}
-                  >
-                    My Notes{" "}
-                    <FaLock className="lock absolute top-0 right-0 text-sm text-blue-600" />
-                  </Link>
-                </li>
+                
                 <li>
                   <Link
                     href="/flashback"
@@ -537,7 +527,7 @@ const Navbar = () => {
                     Blogs
                   </Link>
                 </li>
-                {isLoggedIn && (
+                {isAuthenticated && (
                   <li>
                     <Link
                       href="/profile"
@@ -564,7 +554,7 @@ const Navbar = () => {
               Contact Me
             </button>
             <div>
-              {isLoggedIn ? (
+              {isAuthenticated ? (
                 <button
                   onClick={handleLogout}
                   className="py-3 px-8 rounded-lg bg-blue-600 text-white hover:bg-white hover:text-blue-600 transition-all flex  gap-2 items-center"
@@ -583,7 +573,7 @@ const Navbar = () => {
           </div>
           <div className="lg:hidden w-3/4 flex justify-end items-center gap-5">
             <div>
-              {isLoggedIn ? (
+              {isAuthenticated ? (
                 <button className="py-2 px-6 rounded-lg bg-blue-600 text-nowrap flex items-center gap-2 text-white transition-all hover:bg-white hover:text-blue-600">
                   <LuLogIn className="text-xl" /> Log out
                 </button>
