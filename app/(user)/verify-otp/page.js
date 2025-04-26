@@ -55,11 +55,12 @@ const VerifyOtpPage = () => {
   
 
   return (
-    <div className="py-24 flex items-center justify-center">
-      <div className="w-[550px] bg-[#1e293b] p-8 rounded-2xl shadow-xl">
-        <h2 className="text-white text-2xl font-bold mb-6 text-center">
+    <div className="py-32 flex items-center justify-center">
+      <div className="w-[550px] bg-[#1e293b] p-8 rounded-2xl shadow-xl flex flex-col gap-4">
+        <h2 className="text-white text-2xl font-bold text-center">
           Verify OTP
         </h2>
+        <p className="text-white text-center">OTP send on your registered email</p>
 
         <form onSubmit={handleSubmit} className="flex flex-col items-center gap-6">
           <div className="flex gap-3">
@@ -81,7 +82,7 @@ const VerifyOtpPage = () => {
 
           <button
             type="submit"
-            className="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
+            className="mt-4 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-white hover:text-blue-600  transition"
           >
             Submit OTP
           </button>
