@@ -10,7 +10,7 @@ import { adduser } from "@/Store/slice";
 import Greate from "./Greate";
 import { usePathname } from "next/navigation";
 import { PiSignOutBold } from "react-icons/pi";
-import { FaEye, FaEyeSlash, FaLock, FaUser } from "react-icons/fa";
+
 import { useRouter } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
 import axios from "axios";
@@ -25,7 +25,7 @@ const Navbar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [popupShow, setPopupShow] = useState(false);
   const [showGreate, setShowGreate] = useState(false);
-  const [showSignUp, setShowSignUp] = useState(false);
+
   const [userData, setUserData] = useState({
     firstname: "",
     lastname: "",
@@ -34,12 +34,8 @@ const Navbar = () => {
     message: "",
   });
 
-  const [signInData, setSignInData] = useState({
-    email: "",
-    password: "",
-  });
 
-  const [showPass, setShowPass] = useState(false);
+
 
   // States End
 
@@ -47,10 +43,7 @@ const Navbar = () => {
     const { name, value } = e.target;
     setUserData({ ...userData, [name]: value });
   };
-  const handleChangeTwo = (e) => {
-    const { name, value } = e.target;
-    setSignInData({ ...signInData, [name]: value });
-  };
+ 
 
   const dispatch = useDispatch();
 
@@ -119,53 +112,7 @@ const Navbar = () => {
   }, [])
   
 
-  const handleSignIn = async (e) => {
-    e.preventDefault();
 
-    try {
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/user/login`,
-        signInData,
-        {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.status === 200) {        
-
-        setShowSignUp(false);
-        toast.success("You are logged in successfully", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          theme: "colored",
-        });
-      }
-    } catch (err) {
-      console.log("Login error:", err.message);
-      toast.error(
-        "Sorry, you are not logged in, Please check your ID or Password",
-        {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          theme: "colored",
-        }
-      );
-      router.push("/");
-    }
-
-    setSignInData({ email: "", password: "" });
-  };
 
   const handleLogout = async () => {
     try {
@@ -289,90 +236,7 @@ const Navbar = () => {
 
       {showGreate && <Greate />}
 
-      {showSignUp && (
-        <div className="blur-overlay w-full h-full fixed top-0 left-0 backdrop-blur-lg z-[90]"></div>
-      )}
-      {showSignUp && (
-        <div className="fixed w-[90%] md:w-[520px] lg:w-[650px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[100] p-5 md:p-8 background rounded-lg overflow-hidden">
-          <h2 className="text-xl font-bold text-white pb-4"> Sign In </h2>
-          <span
-            className="absolute top-4 right-4 text-white"
-            onClick={() => setShowSignUp(false)}
-          >
-            <FaXmark className="text-2xl cursor-pointer" />
-          </span>
-          <form className="flex flex-col gap-4" onSubmit={handleSignIn}>
-            <input
-              className="w-full outline-none p-2 md:p-3 rounded-md"
-              type="email"
-              id="email"
-              value={signInData.email}
-              name="email"
-              onChange={handleChangeTwo}
-              placeholder="Email"
-            />
-            <div className="w-full outline-none p-2 md:p-3 rounded-md bg-white flex  items-center">
-              {showPass ? (
-                <input
-                  type="text"
-                  name="password"
-                  id="password"
-                  className="outline-none w-full"
-                  placeholder="Password"
-                  value={signInData.password}
-                  onChange={handleChangeTwo}
-                />
-              ) : (
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  className="outline-none w-full"
-                  placeholder="Password"
-                  value={signInData.password}
-                  onChange={handleChangeTwo}
-                />
-              )}{" "}
-              {showPass ? (
-                <FaEye
-                  className="text-xl cursor-pointer"
-                  onClick={() => setShowPass(!showPass)}
-                />
-              ) : (
-                <FaEyeSlash
-                  className="text-xl cursor-pointer"
-                  onClick={() => setShowPass(!showPass)}
-                />
-              )}{" "}
-            </div>
-            <div className="flex justify-end">
-              <Link className="text-blue-600" href={""}>
-                {" "}
-                Forgot Password?
-              </Link>
-            </div>
-            <button
-              className="disabled:bg-blue-400 p-2 md:p-3 rounded-lg bg-blue-600 text-white"
-              type="submit"
-            >
-              {" "}
-              Log In{" "}
-            </button>
-            <div className="text-white flex justify-center">
-              {" "}
-              Already have an account?&nbsp;{" "}
-              <Link
-                className="text-blue-600 font-semibold"
-                href={"/signup"}
-                onClick={() => setShowSignUp(false)}
-              >
-                {" "}
-                Sign Up{" "}
-              </Link>
-            </div>
-          </form>
-        </div>
-      )}
+     
 
       <ToastContainer />
 
@@ -562,28 +426,28 @@ const Navbar = () => {
                   <PiSignOutBold className="text-xl" /> Log Out
                 </button>
               ) : (
-                <button
-                  onClick={() => setShowSignUp(true)}
+                <Link
+                  href={'/login'}
                   className="py-3 px-8 rounded-lg bg-blue-600 text-white hover:bg-white hover:text-blue-600 transition-all flex  gap-2 items-center"
                 >
                   <LuLogIn className="text-xl" /> Log In
-                </button>
+                </Link>
               )}
             </div>
           </div>
           <div className="lg:hidden w-3/4 flex justify-end items-center gap-5">
             <div>
               {isAuthenticated ? (
-                <button className="py-2 px-6 rounded-lg bg-blue-600 text-nowrap flex items-center gap-2 text-white transition-all hover:bg-white hover:text-blue-600">
+                <button className="py-2 px-6 rounded-lg bg-blue-600 text-nowrap flex items-center gap-2 text-white transition-all hover:bg-white hover:text-blue-600" onClick={handleLogout}>
                   <LuLogIn className="text-xl" /> Log out
                 </button>
               ) : (
-                <button
+                <Link href={"/login"}
                   className="py-2 px-6 rounded-lg bg-blue-600 text-nowrap flex items-center gap-2 text-white transition-all hover:bg-white hover:text-blue-600"
-                  onClick={() => setShowSignUp(true)}
+                  
                 >
                   <LuLogIn className="text-xl" /> Sign in
-                </button>
+                </Link >
               )}
             </div>
             <span
