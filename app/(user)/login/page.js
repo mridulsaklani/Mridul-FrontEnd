@@ -3,11 +3,10 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
-import { FaXmark } from "react-icons/fa6";
 import { FaEye, FaEyeSlash, FaLock, FaUser } from "react-icons/fa";
 import Link from 'next/link';
 
-const page = () => {
+const Page = () => {
     const [errorMessage, setErrorMessage] = useState("")
 
        const [signInData, setSignInData] = useState({
@@ -139,4 +138,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
