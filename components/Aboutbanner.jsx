@@ -27,8 +27,8 @@ const Aboutbanner = () => {
           <Image
             src="/images/work.jpg"
             className="shadow-blue-400 shadow-xl rounded-xl"
-            width={590}
-            height={590}
+            width={560}
+            height={560}
             quality={100}
             alt="Mridul Singh Saklani"
           /> 

@@ -33,22 +33,15 @@ const Page = () => {
             signInData,
             {
               withCredentials: true,
-              headers: {
-                "Content-Type": "application/json",
-              },
             }
           );
-
-          if(response.data.emailVerified === false){
-            router.push('/verify-otp')
-          }
     
           if (response.status === 200) {        
     
             router.push('/')
           }
         } catch (err) {
-          console.log("Login error:", err.message);
+          console.log("Login error:", err);
           setErrorMessage(err.response?.data?.message);
         }
     
@@ -124,7 +117,7 @@ const Page = () => {
               <Link
                 className="text-blue-600 font-semibold"
                 href={"/signup"}
-                onClick={() => setShowSignUp(false)}
+                
               >
                 {" "}
                 Sign Up{" "}
