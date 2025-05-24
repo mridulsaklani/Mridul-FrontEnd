@@ -2,23 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment, Stars } from '@react-three/drei';
 
-const FloatingWireSphere = () => {
-  return (
-    <mesh>
-     
-      <sphereGeometry args={[1.5, 128, 128]} />
-      <meshBasicMaterial 
-        color="#00FFFF" 
-        wireframe 
-        transparent 
-        opacity={0.7} 
-      />
-    </mesh>
-  );
-};
 
 const Special = () => {
   return (
@@ -43,26 +27,7 @@ const Special = () => {
           </div>
 
           <div className="w-full h-[400px] lg:w-[60%] rounded-xl  overflow-hidden">
-            <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-              <ambientLight intensity={0.5} />
-              <directionalLight position={[5, 5, 5]} intensity={1} />
-              <FloatingWireSphere />
-              <OrbitControls 
-                enableZoom={false} 
-                autoRotate 
-                autoRotateSpeed={1}  
-                dampingFactor={0.1} 
-              />
-              <Stars 
-                radius={10} 
-                depth={50} 
-                count={3000} 
-                factor={4} 
-                fade 
-                speed={0.5} 
-              />
-              <Environment preset="sunset" />
-            </Canvas>
+            
           </div>
         </div>
       </div>
