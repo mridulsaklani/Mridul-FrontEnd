@@ -413,16 +413,14 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/notes"
-                  prefetch={true}
-                  className={`${
-                    pathname === "/notes"
-                      ? " text-blue-600"
-                      : "text-neutral-200"
-                  } hover:text-blue-600 transition-all flex relative pr-3`}
+                  href="https://asker-inky.vercel.app/"
+                  target="_blank"
+                  className={`
+                       text-neutral-200
+                   hover:text-blue-600 transition-all flex relative pr-3`}
                   onClick={() => setmenushow(false)}
                 >
-                  My Notes{" "}
+                  ChatBot{" "}
                   <FaLock className="lock absolute top-0 right-0 text-sm text-blue-600" />
                 </Link>
               </li>
@@ -499,16 +497,13 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link
-                    href="/notes"
+                    href="https://asker-inky.vercel.app"
+                    target="_blank"
                     prefetch={true}
-                    className={`${
-                      pathname === "/notes"
-                        ? " text-blue-600"
-                        : "text-neutral-200"
-                    } hover:text-blue-600 transition-all flex relative pr-3`}
+                    className={` text-neutral-200
+                    hover:text-blue-600 transition-all flex relative pr-3`}
                   >
-                    My Notes{" "}
-                    <FaLock className="lock absolute top-0 right-0 text-sm text-blue-600" />
+                    ChatBot 
                   </Link>
                 </li>
                 <li>
