@@ -32,11 +32,7 @@ const Footer = () => {
                 <FaLinkedinIn className='text-lg lg:text-base' />
               </Link>
             </li>
-            <li >
-              <Link href="https://x.com/SaklaniMridul?t=CdL8Iepe8SST-h0QY-Ek-A&s=09" target='_blank' className="h-8 w-8 lg:h-9 lg:w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl">
-                <FaXTwitter className='text-lg lg:text-base'/>
-              </Link>
-            </li>
+           
             <li >
               <Link href="https://github.com/mridulsaklani" target='_blank' className="h-8 w-8 lg:h-9 lg:w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl">
                 <FiGithub className='text-lg lg:text-base'/>

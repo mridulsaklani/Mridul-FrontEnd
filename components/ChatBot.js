@@ -8,22 +8,12 @@ import Link from 'next/link';
 
 const ChatBot = () => {
   
-  // const handleClick = () => {
-  //   toast.info('Sorry, I am under development', {
-  //     position: 'top-right',
-  //     autoClose: 3000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: false,
-  //     draggable: true,
-  //     theme: 'colored',
-  //   });
-  // };
+ 
 
   return (
     <>
       <div className='fixed flex items-end gap-4 flex-col bottom-9 right-7 z-40'>
-        <Link href={'https://asker-inky.vercel.app'}  target='_target'
+        <Link href={'https://asker-inky.vercel.app'}  target='_target' 
           className='bot relative z-40 bg-blue-600 h-16 w-16 rounded-full flex items-center justify-center cursor-pointer'
            
         >

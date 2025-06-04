@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { IoIosContact } from "react-icons/io";
+
 import { LuLogIn } from "react-icons/lu";
 import { FaXmark } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
@@ -122,13 +122,7 @@ const Navbar = () => {
         setIsLoggedIn(true);
         setShowSignUp(false);
         toast.success("You are logged in successfully", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          theme: "colored",
+         
         });
       }
     } catch (err) {
@@ -136,13 +130,7 @@ const Navbar = () => {
       toast.error(
         "Sorry, you are not logged in, Please check your ID or Password",
         {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          theme: "colored",
+          
         }
       );
       router.push("/");
@@ -187,90 +175,7 @@ const Navbar = () => {
 
   return (
     <>
-      {popupShow && (
-        <div className="blur-overlay w-full h-full fixed top-0 left-0 backdrop-blur-lg z-30"></div>
-      )}
-      {popupShow && (
-        <div className="pl-5 pr-5">
-          <div className="half-translate fixed top-1/2 left-1/2 background rounded-lg z-40 w-full sm:w-2/3 flex overflow-hidden flex-col lg:flex-row ">
-            <div className="hidden lg:block lg:w-1/2 bg-gradient-to-r from-cyan-500 to-blue-500 p-6 md:p-10"></div>
-            <div className="lg:w-1/2 p-8">
-              <div className="flex items-center justify-between mb-5 text-white">
-                <h4 className="text-xl font-semibold">Send me a Message</h4>
-                <span onClick={() => setPopupShow(!popupShow)}>
-                  <FaXmark className="text-2xl cursor-pointer" />
-                </span>
-              </div>
-              <form className="flex gap-4 flex-col" onSubmit={handleSubmit}>
-                <div className="flex flex-col md:flex-row gap-4">
-                  <input
-                    className="md:w-1/2 outline-none p-2 md:p-3 rounded-md"
-                    type="text"
-                    id="first-name"
-                    value={userData.firstname}
-                    name="firstname"
-                    onChange={handleChange}
-                    placeholder="First Name"
-                  />
-                  <input
-                    className="md:w-1/2 outline-none p-2 md:p-3 rounded-md"
-                    type="text"
-                    id="lastname"
-                    value={userData.lastname}
-                    onChange={handleChange}
-                    name="lastname"
-                    placeholder="Last Name"
-                  />
-                </div>
-                <div className="flex gap-4 flex-col md:flex-row">
-                  <input
-                    className="md:w-1/2 outline-none p-2 md:p-3 rounded-md"
-                    type="email"
-                    id="email"
-                    value={userData.email}
-                    name="email"
-                    onChange={handleChange}
-                    placeholder="Email"
-                  />
-                  <input
-                    className="md:w-1/2 outline-none p-2 md:p-3 rounded-md"
-                    type="number"
-                    id="number"
-                    value={userData.number}
-                    onChange={handleChange}
-                    name="number"
-                    placeholder="Number"
-                  />
-                </div>
-                <textarea
-                  className="p-2 md:p-3 rounded-lg"
-                  name="message"
-                  id="message"
-                  placeholder="Type here..."
-                  value={userData.message}
-                  onChange={handleChange}
-                  rows={6}
-                ></textarea>
-                <button
-                  disabled={
-                    userData.message == "" ||
-                    userData.number == "" ||
-                    userData.email == "" ||
-                    userData.firstname == "" ||
-                    userData.lastname == ""
-                  }
-                  className="disabled:bg-blue-400 p-2 md:p-3 rounded-lg bg-blue-600 text-white"
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {showGreate && <Greate />}
+     
 
       {showSignUp && (
         <div className="blur-overlay w-full h-full fixed top-0 left-0 backdrop-blur-lg z-[90]"></div>
@@ -440,15 +345,7 @@ const Navbar = () => {
               </li>
             </ul>
           </nav>
-          <div className="flex  items-center justify-start gap-6 pt-10">
-            <button
-              className="py-2 px-6 rounded-lg bg-blue-600 text-nowrap flex items-center gap-2 text-white hover:bg-white hover:text-blue-600 transition-all"
-              onClick={smb}
-            >
-              <IoIosContact className="text-xl" />
-              Contact Me
-            </button>
-          </div>
+          
         </div>
       </div>
 
@@ -506,19 +403,7 @@ const Navbar = () => {
                     ChatBot 
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="/flashback"
-                    prefetch={true}
-                    className={`${
-                      pathname === "/flashback"
-                        ? " text-blue-600"
-                        : "text-neutral-200"
-                    } hover:text-blue-600 transition-all flex relative pr-3`}
-                  >
-                    Flashback
-                  </Link>
-                </li>
+               
                 <li>
                   <Link
                     href="/blogs"
@@ -551,13 +436,7 @@ const Navbar = () => {
             </nav>
           </div>
           <div className=" hidden lg:flex lg:w-2/6  justify-end items-center gap-3">
-            <button
-              className="py-3 px-8 rounded-lg bg-blue-600 text-nowrap flex items-center gap-2 text-white hover:bg-white hover:text-blue-600 transition-all"
-              onClick={() => setPopupShow(!popupShow)}
-            >
-              <IoIosContact className="text-xl" />
-              Contact Me
-            </button>
+            
             <div>
               {isLoggedIn ? (
                 <button
