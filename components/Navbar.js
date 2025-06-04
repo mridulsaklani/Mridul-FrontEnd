@@ -5,16 +5,12 @@ import Image from "next/image";
 
 import { LuLogIn } from "react-icons/lu";
 import { FaXmark } from "react-icons/fa6";
-import { useDispatch } from "react-redux";
-import { adduser } from "@/Store/slice";
-import Greate from "./Greate";
 import { usePathname } from "next/navigation";
 import { PiSignOutBold } from "react-icons/pi";
 import { FaEye, FaEyeSlash, FaLock, FaUser } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
 import axios from "axios";
-import Cookies from "js-cookie";
 
 // Toastify
 import { ToastContainer, toast } from "react-toastify";
@@ -24,7 +20,8 @@ const Navbar = () => {
   //  States start
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [popupShow, setPopupShow] = useState(false);
-  const [showGreate, setShowGreate] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
+ const [errMessage, setErrMessage] = useState(null)
   const [showSignUp, setShowSignUp] = useState(false);
   const [userData, setUserData] = useState({
     firstname: "",
@@ -52,57 +49,15 @@ const Navbar = () => {
     setSignInData({ ...signInData, [name]: value });
   };
 
-  const dispatch = useDispatch();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
   
-    try {
-      dispatch(adduser(userData)); // Dispatch action before API call
-  
-      const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/quote`,
-        userData
-      );
-  
-      if (response.status === 201) {
-        // Reset form data after a successful submission
-        setUserData({
-          firstname: "",
-          lastname: "",
-          email: "",
-          number: "",
-          message: "",
-        });
-  
-        setShowGreate(true);
-        setPopupShow(false);
-  
-        setTimeout(() => {
-          setShowGreate(false);
-        }, 4200);
-      } else {
-        console.error("Unexpected response status:", response.status);
-      }
-    } catch (err) {
-      console.error("Error submitting form:", err.message);
-    }
-  };
-  
-
   const pathname = usePathname();
 
   const router = useRouter();
 
   const [menushow, setmenushow] = useState(false);
 
-  const smb = (e) => {
-    e.preventDefault();
-    setPopupShow(!popupShow);
-    setmenushow(false);
-  };
-
   const handleSignIn = async (e) => {
+    setIsLoading(true)
     e.preventDefault();
 
     try {
@@ -111,32 +66,28 @@ const Navbar = () => {
         signInData,
         {
           withCredentials: true,
-          headers: {
-            "Content-Type": "application/json",
-          },
+         
         }
       );
 
-      if (res.data.token) {
-        Cookies.set("token", res.data.token);
+      if (res.status === 200) {
+       
         setIsLoggedIn(true);
         setShowSignUp(false);
-        toast.success("You are logged in successfully", {
-         
-        });
+        toast.success("You are logged in successfully");
+        setErrMessage(null)
       }
     } catch (err) {
       console.log("Login error:", err.message);
-      toast.error(
-        "Sorry, you are not logged in, Please check your ID or Password",
-        {
-          
-        }
-      );
+      setErrMessage(err?.response?.data?.message || "Something went wrong")
+
       router.push("/");
     }
+    finally{
+      setIsLoading(false)
+      setSignInData({ email: "", password: "" });
+    }
 
-    setSignInData({ email: "", password: "" });
   };
 
   const handleLogout = async () => {
@@ -150,26 +101,12 @@ const Navbar = () => {
         setIsLoggedIn(false);
         router.push("/");
         toast.success("You logged out successfully", {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          theme: "colored",
+         
         });
       }
     } catch (error) {
       console.log(error.message);
-      toast.error("token not deleted", {
-        position: "top-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true,
-        theme: "colored",
-      });
+      setErrMessage(error?.response?.data?.message || "Something went wrong")
     }
   };
 
@@ -239,12 +176,15 @@ const Navbar = () => {
                 Forgot Password?
               </Link>
             </div>
+            <div className="flex justify-end">
+               <p className="text-red-500">{errMessage }</p>
+            </div>
             <button
               className="disabled:bg-blue-400 p-2 md:p-3 rounded-lg bg-blue-600 text-white"
               type="submit"
             >
-              {" "}
-              Log In{" "}
+             
+              {isLoading ? "Loading..." : 'Log In'}
             </button>
             <div className="text-white flex justify-center">
               {" "}
