@@ -86,7 +86,7 @@ const Page = () => {
             className="py-3 px-8 bg-blue-600 text-white rounded-lg text-lg flex gap-2 items-center justify-center"
             type="submit"
           >
-            {isLoading ? "Verifying" : "Verify"}
+            {isLoading ? "Verifying..." : "Verify"}
           </button>
         </form>
       </div>
