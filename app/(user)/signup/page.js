@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Page = () => {
+  const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -38,6 +39,7 @@ const Page = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true)
 
     const formDataToSend = new FormData();
     formDataToSend.append("name", formData.name);
@@ -52,25 +54,14 @@ const Page = () => {
 
     try {
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/user`,
-        formDataToSend,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/user/add`,
+        formDataToSend);
 
       if(response.status === 201){
         toast.success('Your account created successfully', {
-            position: 'top-right',
-            autoClose: 2500,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: false,
-            draggable: true,
-            theme: 'colored',
           });
+
+          window.localStorage.setItem('verify-email', formData.email)
           setFormData({
             name: "",
             email: "",
@@ -81,8 +72,8 @@ const Page = () => {
           })
           setTimeout(() => {
             
-              router.push("/");
-          }, 2500);
+              router.push("/verify-otp");
+          }, 1000);
       }
       
     } catch (error) {
@@ -96,6 +87,9 @@ const Page = () => {
         draggable: true,
         theme: 'colored',
       });
+    }
+    finally{
+      setIsLoading(false)
     }
   };
 
@@ -181,7 +175,7 @@ const Page = () => {
             className="py-3 px-8 bg-blue-600 text-white rounded-lg text-lg flex gap-2 items-center justify-center"
             type="submit"
           >
-            Submit
+            {isLoading ? "Submitting..." : "Submit"}
           </button>
         </form>
       </div>

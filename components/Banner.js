@@ -12,6 +12,7 @@ const Banner = () => {
   useEffect(() => {
     AOS.init({
       duration: 2000,
+      disable:'mobile'
     });
   }, []);
 

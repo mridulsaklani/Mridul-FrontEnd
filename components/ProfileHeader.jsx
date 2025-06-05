@@ -4,6 +4,7 @@ import axios from 'axios'
 import Image from 'next/image'
 import { MdEdit } from "react-icons/md";
 import { FaXmark } from "react-icons/fa6";
+import api from './api';
 
 
 const ProfileHeader = () => {
@@ -35,20 +36,21 @@ const ProfileHeader = () => {
 
   // Get User
 
-  useEffect(()=>{
-
     const getUser = async()=>{
         try {
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_SERVER_URL}/user/userdata`,
+            const response = await api.get(`/user/single-by-token`,
                 {withCredentials: true});
                 if(response.status === 200){
-                    setUserData(response.data);
-                    console.log(response.data)
+                    setUserData(response.data.user);
                 }
         } catch (error) {
             console.error(error)
         }
     }
+
+  useEffect(()=>{
+
+  
     getUser();
 
   },[])
@@ -139,7 +141,7 @@ const ProfileHeader = () => {
       
       <div className="w-1/3">
        <Image
-       src={`${process.env.NEXT_PUBLIC_BASE_SERVER_URL}/${userData.image}`}
+       src={userData?.image}
        width={200}
        height={200}
         className="object-cover w-80 h-80 rounded-xl shadow-blue-400 shadow-xl"

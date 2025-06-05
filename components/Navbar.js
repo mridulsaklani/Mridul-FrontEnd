@@ -15,13 +15,14 @@ import axios from "axios";
 // Toastify
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import api from "./api";
 
 const Navbar = () => {
   //  States start
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [popupShow, setPopupShow] = useState(false);
-  const [isLoading, setIsLoading] = useState(false)
- const [errMessage, setErrMessage] = useState(null)
+  const [isLoading, setIsLoading] = useState(false);
+  const [errMessage, setErrMessage] = useState(null);
   const [showSignUp, setShowSignUp] = useState(false);
   const [userData, setUserData] = useState({
     firstname: "",
@@ -49,15 +50,31 @@ const Navbar = () => {
     setSignInData({ ...signInData, [name]: value });
   };
 
-  
   const pathname = usePathname();
 
   const router = useRouter();
 
   const [menushow, setmenushow] = useState(false);
 
+
+  const verifyAuth = async()=>{
+    try {
+      const response = await api.get('/auth/verify', {withCredentials: true})
+      if(response.status === 200){
+        setIsLoggedIn(true)
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    verifyAuth()
+  }, [])
+  
+
   const handleSignIn = async (e) => {
-    setIsLoading(true)
+    setIsLoading(true);
     e.preventDefault();
 
     try {
@@ -66,28 +83,24 @@ const Navbar = () => {
         signInData,
         {
           withCredentials: true,
-         
         }
       );
 
       if (res.status === 200) {
-       
         setIsLoggedIn(true);
         setShowSignUp(false);
         toast.success("You are logged in successfully");
-        setErrMessage(null)
+        setErrMessage(null);
       }
     } catch (err) {
       console.log("Login error:", err.message);
-      setErrMessage(err?.response?.data?.message || "Something went wrong")
+      setErrMessage(err?.response?.data?.message || "Something went wrong");
 
       router.push("/");
-    }
-    finally{
-      setIsLoading(false)
+    } finally {
+      setIsLoading(false);
       setSignInData({ email: "", password: "" });
     }
-
   };
 
   const handleLogout = async () => {
@@ -100,20 +113,16 @@ const Navbar = () => {
       if (response.status === 200) {
         setIsLoggedIn(false);
         router.push("/");
-        toast.success("You logged out successfully", {
-         
-        });
+        toast.success("You logged out successfully", {});
       }
     } catch (error) {
       console.log(error.message);
-      setErrMessage(error?.response?.data?.message || "Something went wrong")
+      setErrMessage(error?.response?.data?.message || "Something went wrong");
     }
   };
 
   return (
     <>
-     
-
       {showSignUp && (
         <div className="blur-overlay w-full h-full fixed top-0 left-0 backdrop-blur-lg z-[90]"></div>
       )}
@@ -177,14 +186,13 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="flex justify-end">
-               <p className="text-red-500">{errMessage }</p>
+              <p className="text-red-500">{errMessage}</p>
             </div>
             <button
               className="disabled:bg-blue-400 p-2 md:p-3 rounded-lg bg-blue-600 text-white"
               type="submit"
             >
-             
-              {isLoading ? "Loading..." : 'Log In'}
+              {isLoading ? "Loading..." : "Log In"}
             </button>
             <div className="text-white flex justify-center">
               {" "}
@@ -285,7 +293,6 @@ const Navbar = () => {
               </li>
             </ul>
           </nav>
-          
         </div>
       </div>
 
@@ -340,10 +347,10 @@ const Navbar = () => {
                     className={` text-neutral-200
                     hover:text-blue-600 transition-all flex relative pr-3`}
                   >
-                    ChatBot 
+                    ChatBot
                   </Link>
                 </li>
-               
+
                 <li>
                   <Link
                     href="/blogs"
@@ -376,7 +383,6 @@ const Navbar = () => {
             </nav>
           </div>
           <div className=" hidden lg:flex lg:w-2/6  justify-end items-center gap-3">
-            
             <div>
               {isLoggedIn ? (
                 <button
