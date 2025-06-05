@@ -58,8 +58,7 @@ const Page = () => {
         formDataToSend);
 
       if(response.status === 201){
-        toast.success('Your account created successfully', {
-          });
+        toast.success('Your account created successfully');
 
           window.localStorage.setItem('verify-email', formData.email)
           setFormData({
