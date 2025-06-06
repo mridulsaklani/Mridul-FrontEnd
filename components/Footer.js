@@ -1,9 +1,11 @@
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FiGithub } from "react-icons/fi";
+import { ReactTyped } from "react-typed";
 
 const Footer = () => {
 
@@ -19,7 +21,20 @@ const Footer = () => {
               height={40}
               alt="Mridul Singh Saklani"
             />
-            <h4 className=" text-sm lg:text-xl font-bold text-white">Mridul Singh Saklani</h4>
+            <h4 className=" text-sm lg:text-xl font-bold text-white">Live as a Villain, dia as a <span className='text-blue-500'><ReactTyped
+                  strings={[
+                    "H",
+                    "E",
+                    "R",
+                    "O",
+                    '🥷',
+                    'Hero🥷'
+                  ]}
+                  typeSpeed={40}
+                  backSpeed={50}
+                  
+                  loop
+                /></span></h4>
           </Link>
           <p className="text-neutral-400 text-sm">
             &copy; {year} | <Link href="/" className="underline">mridulsinghsaklani.com</Link>
