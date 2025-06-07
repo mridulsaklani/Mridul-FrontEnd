@@ -63,6 +63,19 @@ h2{
     background-color: #1e293b;
 }
 
+.musbtn::before{
+  content: '';
+  position: absolute;
+  height: 34px;
+ width: 34px;
+ background-color: #2563EB;
+ animation: bot2 3s linear infinite;
+ border-radius: 100%;
+ top: 0%;
+ left: 0%;
+z-index: 10;
+}
+
 .border{
   border: 1px solid #ffffff20;
 }
@@ -223,6 +236,16 @@ h2{
   }
   100%{
     transform: scale(1.25);
+    opacity: 0;
+  }
+}
+@keyframes bot2 {
+  0%{
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100%{
+    transform: scale(1.95);
     opacity: 0;
   }
 }

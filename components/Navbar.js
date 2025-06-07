@@ -217,7 +217,7 @@ const Navbar = () => {
       <div
         className={` ${
           menushow ? "mr-0" : "sidemenushow"
-        } sidemenu w-full sm:w-[430px]  background fixed top-0 right-0 z-50 h-full`}
+        } sidemenu w-full sm:w-[430px]  background fixed top-0 right-0 z-60 h-full`}
       >
         <div className="sideMenu-header flex justify-between items-center p-6">
           <Link href={"/"} onClick={() => setmenushow(false)}>
