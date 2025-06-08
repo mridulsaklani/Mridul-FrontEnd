@@ -264,19 +264,7 @@ const Navbar = () => {
                   Skills
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="https://asker-inky.vercel.app/"
-                  target="_blank"
-                  className={`
-                       text-neutral-200
-                   hover:text-blue-600 transition-all flex relative pr-3`}
-                  onClick={() => setmenushow(false)}
-                >
-                  ChatBot{" "}
-                  <FaLock className="lock absolute top-0 right-0 text-sm text-blue-600" />
-                </Link>
-              </li>
+          
               <li>
                 <Link
                   href="/blogs"

@@ -3,15 +3,20 @@ import React, { useState, useRef, useEffect } from "react";
 import { TbMessageChatbot } from "react-icons/tb";
 import { FaPaperPlane } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import { IoVolumeMuteOutline } from "react-icons/io5";
+import { GoUnmute } from "react-icons/go";
 import axios from "axios";
 
 const ChatBot = () => {
   const [formData, setFormData] = useState({ content: "" });
+  const [audios, setAudios] = useState(null)
   const [messages, setMessages] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
   const greetedRef = useRef(false); 
+  const audioRef = useRef(null);
+const [isMuted, setIsMuted] = useState(false);
 
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -45,10 +50,11 @@ const ChatBot = () => {
       );
 
       const botResponse =
-        res?.data?.steps?.pop() || "No response from chatbot.";
+        res?.data?.step || "No response from chatbot.";
 
       const botMessage = { role: "bot", content: botResponse };
       setMessages((prev) => [...prev, botMessage]);
+      setAudios(process.env.NEXT_PUBLIC_AI_SERVER_URL + res.data?.audio_file)
     } catch (err) {
       setMessages((prev) => [
         ...prev,
@@ -102,6 +108,15 @@ const ChatBot = () => {
 
    
     <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50">
+     {audios && (
+  <audio
+    ref={audioRef}
+    src={audios}
+    autoPlay
+    muted={isMuted}
+  />
+)}
+
       {messages.map((msg, index) => (
         <div
           key={index}
@@ -124,10 +139,17 @@ const ChatBot = () => {
     </div>
 
   
-    <form
-      onSubmit={handleSend}
-      className="border-t border-gray-300 p-2 flex items-center"
-    >
+   <form
+  onSubmit={handleSend}
+  className="border-t border-gray-300 p-2 flex items-center gap-1"
+>
+  <button
+  type="button"
+  onClick={() => setIsMuted(prev => !prev)}
+  className="text-blue-600 font-semibold border border-blue-600 px-1 py-1 rounded-lg hover:bg-blue-600 hover:text-white transition"
+>
+  {isMuted ?  <IoVolumeMuteOutline className="text-lg" /> : <GoUnmute className="text-lg" />}
+</button>
       <textarea
         rows={1}
         name="content"
