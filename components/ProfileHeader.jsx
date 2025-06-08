@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { MdEdit } from "react-icons/md";
 import { FaXmark } from "react-icons/fa6";
 import api from './api';
-
+import { useRouter } from 'next/navigation';
 
 const ProfileHeader = () => {
   const [userData, setUserData] = useState({});
@@ -20,6 +20,9 @@ const ProfileHeader = () => {
     }
   )
 
+  const router = useRouter()
+
+
   // Handle Change
   const handleChange = (e)=>{
     const {name, value} = e.target;
@@ -32,6 +35,7 @@ const ProfileHeader = () => {
       setFromData((prev) => ({ ...prev, image: file }));
     }
   };
+
   
 
   // Get User
@@ -45,6 +49,8 @@ const ProfileHeader = () => {
                 }
         } catch (error) {
             console.error(error)
+            router.push('/')
+            
         }
     }
 

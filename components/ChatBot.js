@@ -88,7 +88,7 @@ const ChatBot = () => {
     <>
       <div className="fixed bottom-9 right-7 z-50 flex flex-col items-end gap-4 ">
        {isOpen && (
-  <div className="w-screen h-screen md:w-[380px] md:h-[500px] bg-white shadow-xl rounded-none md:rounded-xl flex flex-col overflow-hidden fixed top-0 left-0 bottom-0 right-0 md:relative">
+  <div className="w-screen h-screen md:w-[380px] md:h-[500px] bg-white shadow-xl rounded-none md:rounded-xl flex flex-col overflow-hidden fixed top-0 left-0 bottom-0 right-0 md:relative z-[100]">
     
     <div className="bg-blue-600 text-white p-4 font-bold flex items-center justify-between">
       Mridul AI Assistant
