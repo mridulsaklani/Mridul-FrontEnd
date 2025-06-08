@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TbMessageChatbot } from "react-icons/tb";
 import { FaPaperPlane } from "react-icons/fa";
+import { FaXmark } from "react-icons/fa6";
 import axios from "axios";
 
 const ChatBot = () => {
@@ -10,7 +11,7 @@ const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
-  const greetedRef = useRef(false); // prevent multiple greetings
+  const greetedRef = useRef(false); 
 
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -92,10 +93,10 @@ const ChatBot = () => {
     <div className="bg-blue-600 text-white p-4 font-bold flex items-center justify-between">
       Mridul AI Assistant
       <span
-        className="cursor-pointer text-sm"
+        className="cursor-pointer text-sm hover:rotate-90 transition-all duration-300"
         onClick={() => setIsOpen(false)}
       >
-        ✖
+        <FaXmark className="text-xl"/>
       </span>
     </div>
 
@@ -140,7 +141,6 @@ const ChatBot = () => {
         type="submit"
         disabled={loading}
         className="bg-blue-600 p-3 rounded-lg text-white ml-2 hover:bg-blue-700 disabled:opacity-50"
-        onClick={handleSend}
       >
         <FaPaperPlane />
       </button>

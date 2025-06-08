@@ -19,7 +19,7 @@ export function middleware(request) {
     }
 
     if (request.nextUrl.pathname.startsWith("/profile")) {
-        if (!user) {
+        if (!token) {
             return NextResponse.redirect(new URL("/", request.url));
         }
     }
