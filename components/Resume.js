@@ -14,7 +14,7 @@ const Resume = () => {
   useEffect(() => {
     if (num === 4 && audioRef.current) {
       const audio = audioRef.current;
-      audio.muted = isMuted; // ensure current muted state is applied
+      audio.muted = isMuted; 
       audio.play().catch((err) => {
         console.warn("Playback prevented:", err);
       });
@@ -47,7 +47,7 @@ const Resume = () => {
             className="resume-shadow grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 rounded-xl p-4 lg:p-0"
             data-aos="zoom-in"
           >
-            <div className="py-4 lg:py-8 flex justify-center items-center">
+            <div className="py-4 lg:py-8 flex justify-center border-b-[1px] md:border-b-0 border-white/20 items-center">
               <button
                 className={
                   num === 1
@@ -56,10 +56,10 @@ const Resume = () => {
                 }
                 onClick={() => setnum(1)}
               >
-                Education
+                Education <span className={`${num === 1 ? "scale-115 rotate-12" : 'scale-100'} transition-all duration-300`}>🎓</span>
               </button>
             </div>
-            <div className=" py-4 lg:py-8 flex justify-center items-center">
+            <div className=" py-4 lg:py-8 border-b-[1px] md:border-b-0 border-white/20 flex justify-center items-center">
               <button
                 className={
                   num === 2
@@ -68,10 +68,10 @@ const Resume = () => {
                 }
                 onClick={() => setnum(2)}
               >
-                Profetional Skills
+                Professional Skills <span className={`${num === 1 ? "scale-115 rotate-12" : 'scale-100'} transition-all duration-300`}>☠️</span>
               </button>
             </div>
-            <div className="py-4 lg:py-8 flex justify-center items-center">
+            <div className="py-4 lg:py-8 border-b-[1px] md:border-b-0 border-white/20 flex justify-center items-center">
               <button
                 className={
                   num === 3
@@ -80,7 +80,7 @@ const Resume = () => {
                 }
                 onClick={() => setnum(3)}
               >
-                Working
+                Working <span className={`${num === 1 ? "scale-115 rotate-12" : 'scale-100'} transition-all duration-300`}> 🧑‍💻 </span>
               </button>
             </div>
             <div className="py-4 lg:py-8 flex justify-center items-center">
@@ -92,7 +92,7 @@ const Resume = () => {
                 }
                 onClick={() => setnum(4)}
               >
-                Burn
+                Burn <span className={`${num === 1 ? "scale-115 rotate-12" : 'scale-100'} transition-all duration-300`}> 🔥 </span>
               </button>
             </div>
           </div>
@@ -110,7 +110,7 @@ const Resume = () => {
                   Education Quality
                 </h3>
               </div>
-              <div className="pl-8 border-l-4 border-rose-200  flex flex-col gap-12">
+              <div className="md:pl-8 md:border-l-4 border-rose-200  flex flex-col gap-12">
                 <div className="skill-border edu relative p-8 rounded-lg flex flex-col ">
                   <div className="border-circle">
                     <div className=" flex items-center border-bottom pb-8">
@@ -170,7 +170,7 @@ const Resume = () => {
                   Education Quality
                 </h3>
               </div>
-              <div className="pl-8 border-l-4 border-rose-200  flex flex-col gap-12">
+              <div className="md:pl-8 md:border-l-4 border-rose-200  flex flex-col gap-12">
                 <div className="skill-border edu relative p-8 rounded-lg flex flex-col ">
                   <div className="border-circle">
                     <div className=" flex items-center border-bottom pb-8">
@@ -282,14 +282,14 @@ const Resume = () => {
   </button>
             <Image
                 className="shadow-blue-400 shadow-xl rounded-xl w-full lg:w-fit"
-                src="/images/Mridul-gym.jpg"
+                src="/images/Mridul-singh-saklani-gym.jpg"
                 width={300}
                 height={400}
                 alt="Mridul singh saklani"
               />
               <Image
                 className="shadow-blue-400 shadow-xl rounded-xl relative lg:absolute w-full lg:w-fit  lg:right-0 lg:top-1/2 lg:-translate-y-1/2"
-                src="/images/gym2.jpg"
+                src="/images/Mridul-singh-sakalni-gym2.jpg"
                 width={170}
                 height={100}
                 alt="Mridul singh saklani"

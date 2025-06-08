@@ -29,7 +29,7 @@ const Quite = () => {
             
         </div>
         <div className="mb-16">
-                <p className="text-lg text-neutral-200 mb-5 text-center lg:text-start">I consider myself an accidental developer; a career in software development was never my original plan. While I enjoyed technology, my true dream was to crack the CDS exam and serve as a lieutenant in the Indian Army. However, due to significant personal reasons, I had to let go of this dream—a decision that was incredibly difficult for me.
+                <p className="text-lg text-neutral-200 mb-5 text-center lg:text-start">I consider myself an accidental developer; a career in software development was never my original plan. While I enjoyed technology, my true dream was to crack the CDS exam and serve as a Officer in the Army. However, due to significant personal reasons, I had to let go of this dream—a decision that was incredibly difficult for me.
                 During that challenging time, I faced a severe illness, one that brought me to the brink of life and death. But when all hope seemed lost, I found the strength to pull myself through and made the decision to start anew, determined to make the most of a new path.
                 </p>
                

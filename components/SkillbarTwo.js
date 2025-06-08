@@ -3,12 +3,17 @@ import React from "react";
 import { motion, useInView } from "framer-motion";
 
 const skills = [
-  { name: "Node.js", level: 55 },
-  { name: "MongoDB", level: 50 },
-  { name: "Python", level: 65 },
-  { name: "Wordpress", level: 70 },
-  { name: "C++", level: 60 },
-  { name: "Java", level: 65 },
+  { name: "Python", level: 75 },
+  {name: "FastAPI", level: 70},
+  {name: 'Pydantic', level: 60},
+  {name: 'NumPy', level: 60},
+  {name: 'SciPy', level: 60},
+  {name: 'TensorFlow', level: 64},
+  {name: 'Keras', level: 54},
+  {name: 'PyTorch', level: 74},
+  {name: 'OpenCV', level: 66},
+  {name: 'PyMongo', level:55},
+  {name: 'PostgreSQL', level:50}
 ];
 
 const SkillbarTwo = () => {
