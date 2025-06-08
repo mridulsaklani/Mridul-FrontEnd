@@ -140,6 +140,7 @@ const ChatBot = () => {
         type="submit"
         disabled={loading}
         className="bg-blue-600 p-3 rounded-lg text-white ml-2 hover:bg-blue-700 disabled:opacity-50"
+        onClick={handleSend}
       >
         <FaPaperPlane />
       </button>
