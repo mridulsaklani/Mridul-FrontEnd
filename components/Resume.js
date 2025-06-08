@@ -285,14 +285,14 @@ const Resume = () => {
                 src="/images/Mridul-gym.jpg"
                 width={300}
                 height={400}
-                alt="Image"
+                alt="Mridul singh saklani"
               />
               <Image
                 className="shadow-blue-400 shadow-xl rounded-xl relative lg:absolute w-full lg:w-fit  lg:right-0 lg:top-1/2 lg:-translate-y-1/2"
                 src="/images/gym2.jpg"
-                width={160}
+                width={170}
                 height={100}
-                alt="Image"
+                alt="Mridul singh saklani"
               />
             </div>
             <div className="w-full lg:w-[60%]">
