@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import api from '@/components/api';
 import { useEffect } from 'react'
 
-const page = () => {
+const Page = () => {
 
   const verifyAuth = async()=>{
     try {
@@ -31,4 +31,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
