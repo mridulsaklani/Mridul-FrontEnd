@@ -300,7 +300,7 @@ const Navbar = () => {
           </div>
           <div className=" hidden lg:block lg:w-3/6">
             <nav>
-              <ul className="flex items-center justify-end gap-14">
+              <ul className="flex items-center justify-center gap-14">
                 <li>
                   <Link
                     href="/about"
@@ -327,17 +327,7 @@ const Navbar = () => {
                     Skills
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    href="https://asker-inky.vercel.app"
-                    target="_blank"
-                    prefetch={true}
-                    className={` text-neutral-200
-                    hover:text-blue-600 transition-all flex relative pr-3`}
-                  >
-                    ChatBot
-                  </Link>
-                </li>
+                
 
                 <li>
                   <Link

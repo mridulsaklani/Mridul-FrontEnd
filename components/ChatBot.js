@@ -81,6 +81,7 @@ const ChatBot = () => {
 
   return (
     <>
+    {isOpen && <div className="backdrop-blur-sm w-full h-full fixed z-[49] top-0 left-0 right-0 bottom-0" onClick={()=>setIsOpen(false)}></div>}
       <div className="fixed bottom-9 right-7 z-50 flex flex-col items-end gap-4">
         {isOpen && (
           <div className="w-screen h-screen md:w-[380px] md:h-[500px] bg-white shadow-xl rounded-none md:rounded-xl flex flex-col overflow-hidden fixed top-0 left-0 bottom-0 right-0 md:relative z-[100]">

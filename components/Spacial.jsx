@@ -9,8 +9,8 @@ const Special = () => {
     <>
       <div className="max-w-7xl mx-auto py-8 lg:py-24 flex flex-col items-center w-full justify-center gap-5 px-5">
         <div className="mb-9 flex flex-col w-full items-center lg:items-start">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 text-center lg:text-start">Everything Is for You</h2>
-          <span className="border-blue-600 border-4 w-20 rounded-full flex flex-col"></span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 text-center lg:text-start" data-aos='fade-up'>Everything Is for You</h2>
+          <span className="border-blue-600 border-4 w-20 rounded-full flex flex-col" data-aos='fade-up' data-aos-delay='200'></span>
         </div>
 
         <div className="flex flex-col justify-center items-center gap-16 lg:flex-row lg:gap-5 w-full">
@@ -23,10 +23,12 @@ const Special = () => {
               height={360}
               quality={100}
               alt="My parents"
+              data-aos='fade-up'
+              data-aos-delay='400'
             />
           </div>
 
-          <div className="w-full h-[400px] lg:w-[60%] rounded-xl  overflow-hidden">
+          <div className="w-full md:h-[400px] lg:w-[60%] rounded-xl  overflow-hidden">
             
           </div>
         </div>

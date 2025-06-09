@@ -10,13 +10,13 @@ const Teacher = () => {
     <>
       <div className="max-w-7xl m-auto py-20 pr-5 pl-5">
         <div className="mb-14 flex flex-col items-center lg:items-start">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 items-center lg:items-start text-center lg:text-start">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 items-center lg:items-start text-center lg:text-start" data-aos='fade-up'>
             People Who Inspire Me
           </h2>
-          <span className="border-blue-600 border-4 w-20 rounded-full flex flex-col"></span>
+          <span className="border-blue-600 border-4 w-20 rounded-full flex flex-col" data-aos='fade-up'></span>
         </div>
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="background p-6 lg:p-10 rounded-lg">
+          <div className="background p-6 lg:p-10 rounded-lg" data-aos='fade-up' data-aos-delay='200'>
             <div className="b-border flex  gap-8 pb-6 ">
               <Image
                 className="object-cover object-top h-28 rounded-lg"
@@ -24,6 +24,8 @@ const Teacher = () => {
                 width={120}
                 height={100}
                 alt="Harry Bhai"
+                data-aos='zoom-in'
+                data-aos-delay='300'
               />
               <div className="flex flex-col  gap-2">
                 <Link
@@ -51,7 +53,7 @@ const Teacher = () => {
                 >
                   <MdPersonSearch className="text-xl" /> Learn More
                 </Link>
-                <div className="flex gap-3">
+                <div className="flex gap-3" >
                   <Link
                     href=""
                     className="h-9 w-9 flex items-center justify-center text-blue-600 bg-white rounded-full text-xl"
@@ -68,14 +70,16 @@ const Teacher = () => {
               </div>
             </div>
           </div>
-          <div className="background p-6 lg:p-10 rounded-lg">
+          <div className="background p-6 lg:p-10 rounded-lg" data-aos='fade-up' data-aos-delay='400'>
             <div className="b-border flex gap-8 pb-6 ">
               <Image
                 className="object-cover object-top h-28 rounded-lg"
                 src="/images/hitesh-chaudhary.jpg"
                 width={120}
                 height={100}
-                alt="Harry Bhai"
+                alt="Hitesh Chaudhary"
+                data-aos='zoom-in'
+                data-aos-delay='500'
               />
               <div className="flex flex-col  gap-2">
                 <Link

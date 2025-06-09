@@ -4,6 +4,9 @@ import './globals.css';
 import ReduxProvider from "@/Store/ReduxProvider";
 import { Nunito } from 'next/font/google';
 import AnimatedCursor from "react-animated-cursor"
+import 'aos/dist/aos.css';
+import AOSInit from '@/components/AOSInit';
+
 
 
 
@@ -23,7 +26,7 @@ export default function RootLayout({ children }) {
         style={{ fontFamily: 'Nunito' }}
       >
         <ReduxProvider>
-     
+        <AOSInit/>
     
       
         <AnimatedCursor

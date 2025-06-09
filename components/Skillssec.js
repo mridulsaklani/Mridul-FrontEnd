@@ -17,10 +17,10 @@ const Skills = () => {
     <>
       <div className="max-w-7xl m-auto py-20 pr-5 pl-5">
         <div className="mb-14 flex flex-col items-center lg:items-start ">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight text-center lg:text-start">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight text-center lg:text-start" data-aos='fade-up'>
             Mastering the Art of Code
           </h2>
-          <span className="border-blue-600 border-4 w-20 rounded-full flex flex-col"></span>
+          <span className="border-blue-600 border-4 w-20 rounded-full flex flex-col" data-aos='fade-up'></span>
         </div>
         <div className="flex flex-col gap-16">
           <div className="  skill-border grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 p-8 rounded-lg">
