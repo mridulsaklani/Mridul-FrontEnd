@@ -16,7 +16,7 @@ const Special = () => {
         <div className="flex flex-col justify-center items-center gap-16 lg:flex-row lg:gap-5 w-full">
           
           <div className="w-full lg:w-[40%]">
-            <Image
+            <figure className="image-anime"><Image
               className="shadow-blue-400 shadow-xl rounded-xl aspect-[3/4] object-cover w-full"
               src={"/images/special.jpg"}
               width={400}
@@ -25,7 +25,7 @@ const Special = () => {
               alt="My parents"
               data-aos='fade-up'
               data-aos-delay='400'
-            />
+            /></figure>
           </div>
 
           <div className="w-full md:h-[400px] lg:w-[60%] rounded-xl  overflow-hidden">

@@ -30,10 +30,10 @@ const Skills = () => {
               </h3>
             </div>
             <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 lg:p-4 md:py-4 flex items-center justify-center">
-              <Image className="skill-img transition-all" src="/images/numpy.png" width={100} height={100} alt="numpy" data-aos="zoom-in" />
+              <Image className="skill-img transition-all" src="/images/python.png" width={100} height={100} alt="python" data-aos="zoom-in" />
             </div>
             <div className="border-right px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center" >
-            <Image className="skill-img transition-all scale-110" src="/images/scipy.png" width={100} height={100} alt="scipy" data-aos="zoom-in" data-aos-delay="200"/>
+            <Image className="skill-img transition-all scale-110" src="/images/numpy.png" width={100} height={100} alt="numpy" data-aos="zoom-in" data-aos-delay="200"/>
             </div>
             <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/TensorFlow.png" width={100} height={100} alt="TensorFlow" data-aos="zoom-in" data-aos-delay="400"/>
@@ -51,8 +51,11 @@ const Skills = () => {
                 AI & ML
               </h3>
             </div>
-            <div className=" p-4 flex items-center justify-center">
+            <div className="border-white p-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/OpenCV.png" width={100} height={100} alt="OpenCV" data-aos="zoom-in" />
+            </div>
+            <div className=" p-4 flex items-center justify-center">
+            <Image className="skill-img transition-all" src="/images/scipy.png" width={100} height={100} alt="scipy" data-aos="zoom-in" />
             </div>
           
             
@@ -132,10 +135,10 @@ const Skills = () => {
             
             </div>
             <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
-            <Image className="skill-img transition-all" src="/images/c-language.png" width={100} height={100} alt="figma" data-aos="zoom-in" data-aos-delay="400"/>
+            <Image className="skill-img transition-all" src="/images/c-language.png" width={100} height={100} alt="c++" data-aos="zoom-in" data-aos-delay="400"/>
             </div>
             <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
-            <Image className="skill-img transition-all" src="/images/figma.png" width={100} height={100} alt="tailwind" data-aos="zoom-in" data-aos-delay="600"/>
+            <Image className="skill-img transition-all" src="/images/tailwind.png" width={100} height={100} alt="tailwind" data-aos="zoom-in" data-aos-delay="600"/>
             </div>
             <div className=" px-4 py-12  md:border-b-0 border-white/30 p-4 flex items-center md:py-4 justify-center">
             <Image className="skill-img transition-all" src="/images/wordpress.png" width={100} height={100} alt="wordpress" data-aos="zoom-in" data-aos-delay="800"/>

@@ -60,13 +60,13 @@ const Banner = () => {
           </div> */}
         </div>
         <div className="lg:w-1/2  flex justify-center items-center " data-aos="zoom-in-left">
-          <Image
+         <figure className="image-anime  hover:md:scale-105 transition-all"><Image
             className="shadow-blue-400 shadow-xl rounded-xl"
             src="/images/Mridul-Singh-saklani.jpg"
             width={400}
             height={400}
             alt="Mridul Singh Saklani"
-          />
+          /> </figure>
         </div>
       </div>
       </div>

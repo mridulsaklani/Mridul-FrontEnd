@@ -128,10 +128,7 @@ const Resume = () => {
                     </div>
                     <div className="text-neutral-200 pt-8">
                       <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Neque sunt ratione dolorem delectus culpa fugit aperiam,
-                        illum repudiandae. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Tenetur unde quod maiores!
+                       I completed my B.Sc. in Physics from Ballabh Government College, Mandi, under Himachal Pradesh University, where I studied core subjects including Physics, Mathematics, and Chemistry.
                       </p>
                     </div>
                   </div>
@@ -153,10 +150,9 @@ const Resume = () => {
                     </div>
                     <div className="text-neutral-200 pt-8">
                       <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Neque sunt ratione dolorem delectus culpa fugit aperiam,
-                        illum repudiandae. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Tenetur unde quod maiores!
+                       I earned my MCA from Lovely Professional University with a specialization in Artificial Intelligence and Machine Learning, gaining hands-on experience in modern technologies and intelligent system development.
+
+
                       </p>
                     </div>
                   </div>
@@ -188,10 +184,7 @@ const Resume = () => {
                     </div>
                     <div className="text-neutral-200 pt-8">
                       <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Neque sunt ratione dolorem delectus culpa fugit aperiam,
-                        illum repudiandae. Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit. Tenetur unde quod maiores!
+                       Currently, I am pursuing an MBA in Digital Marketing through distance education from Lovely Professional University, expanding my knowledge in marketing strategies and digital transformation.
                       </p>
                     </div>
                   </div>
@@ -204,7 +197,7 @@ const Resume = () => {
                     <div className=" flex items-center border-bottom pb-8">
                       <div className="w-3/4">
                         <h4 className="font-bold text-2xl text-white mb-3">
-                          Master of Computer Applications
+                          Planing to LLB!
                         </h4>
                         <h5 className="font-bold text-neutral-300">
                           Lovely Professional University (2022 - 2024){" "}
@@ -238,13 +231,13 @@ const Resume = () => {
             }
           >
             <div className="lg:w-1/2 flex justify-center items-center">
-              <Image
+             <figure className="image-anime"> <Image
                 className="shadow-blue-400 shadow-xl rounded-xl"
                 src="/images/dev-team.jpg"
                 width={500}
                 height={500}
                 alt="Image"
-              />
+              /> </figure>
             </div>
             <div className="lg:w-1/2">
               <h5 className="text-blue-600 mb-2 lg:mb-4 text-center lg:text-start">
@@ -279,21 +272,23 @@ const Resume = () => {
     aria-label="Toggle Mute"
   >
     {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-  </button>
+  </button> <figure className="image-anime hover:z-10 hover:md:scale-105 transition-all">
             <Image
-                className="shadow-blue-400 shadow-xl rounded-xl w-full lg:w-fit"
+                className="shadow-blue-400 shadow-xl rounded-xl w-full "
                 src="/images/Mridul-singh-saklani-gym.jpg"
                 width={300}
                 height={400}
                 alt="Mridul singh saklani"
-              />
+              /></figure>
+              <div className="lg:absolute w-full lg:w-fit  lg:right-0 lg:top-1/2 lg:-translate-y-1/2 shadow-blue-400  rounded-xl">
+              <figure className="image-anime hover:z-10 hover:md:scale-105 transition-all">
               <Image
-                className="shadow-blue-400 shadow-xl rounded-xl relative lg:absolute w-full lg:w-fit  lg:right-0 lg:top-1/2 lg:-translate-y-1/2"
+                className=" relative  "
                 src="/images/Mridul-singh-sakalni-gym2.jpg"
                 width={170}
                 height={100}
                 alt="Mridul singh saklani"
-              />
+              /></figure></div>
             </div>
             <div className="w-full lg:w-[60%]">
               <h5 className="text-blue-600 mb-2 lg:mb-4 text-center lg:text-start">

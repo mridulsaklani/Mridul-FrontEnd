@@ -24,14 +24,14 @@ const Aboutbanner = () => {
           </p>
         </div>
         <div className="lg:w-1/2 justify-center flex" data-aos="zoom-out">
-          <Image
+         <figure className="image-anime"> <Image
             src="/images/work.jpg"
             className="shadow-blue-400 shadow-xl rounded-xl"
             width={560}
             height={560}
             quality={100}
             alt="Mridul Singh Saklani"
-          /> 
+          /> </figure>
         </div>
       </div>
     </>
