@@ -283,7 +283,7 @@ const Resume = () => {
               <div className="lg:absolute w-full lg:w-fit  lg:right-0 lg:top-1/2 lg:-translate-y-1/2 shadow-blue-400  rounded-xl">
               <figure className="image-anime hover:z-10 hover:md:scale-105 transition-all">
               <Image
-                className=" relative  "
+                className=" relative w-full "
                 src="/images/Mridul-singh-sakalni-gym2.jpg"
                 width={170}
                 height={100}

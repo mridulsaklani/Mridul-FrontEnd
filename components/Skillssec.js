@@ -51,10 +51,10 @@ const Skills = () => {
                 AI & ML
               </h3>
             </div>
-            <div className="border-white p-4 flex items-center justify-center">
+            <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/OpenCV.png" width={100} height={100} alt="OpenCV" data-aos="zoom-in" />
             </div>
-            <div className=" p-4 flex items-center justify-center">
+            <div className="  px-4 py-12  md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/scipy.png" width={100} height={100} alt="scipy" data-aos="zoom-in" />
             </div>
           
