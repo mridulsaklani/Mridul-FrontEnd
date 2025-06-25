@@ -97,7 +97,7 @@ const ChatBot = () => {
         setMessages([
           {
             role: "bot",
-            content: "Hey I am Major, Mridul AI Assistant. How can I help you? first response will take sometime due to server restarting reason 😓 ",
+            content: "Hey I am Major, Mridul AI Assistant. How can I help you? My first response will take sometime due to server restarting reason😓 ",
           },
         ]);
         greetedRef.current = true;
