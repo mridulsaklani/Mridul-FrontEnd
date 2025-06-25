@@ -156,7 +156,7 @@ const ChatBot = () => {
 
             <form
               onSubmit={handleSend}
-              className="border-t border-gray-300 p-2 px-3 flex items-center gap-1"
+              className="border-t border-gray-300 p-2 px-3 flex items-center gap-1 sm:fixed sm:bottom-0 md:relative"
             >
               <div>
                 {isListening ? (

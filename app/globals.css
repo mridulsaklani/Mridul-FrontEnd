@@ -233,10 +233,13 @@ z-index: 10;
 .chatbot h1,h2,h3,h4,h5,h6{
   font-weight: 700;
   font-size: 19px;
+  margin: 6px 0;
 }
 
 .chatbot li{
   list-style: disc;
+   margin: 6px 0;
+
 }
 
 .chatbot li::marker {
