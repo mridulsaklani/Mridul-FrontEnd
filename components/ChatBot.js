@@ -1,12 +1,15 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import { TbMessageChatbot } from "react-icons/tb";
-import { FaPaperPlane } from "react-icons/fa";
+import { FaPaperPlane, FaMicrophoneAlt, FaMicrophoneAltSlash } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import parse from "html-react-parser";
 import axios from "axios";
+import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 
 const ChatBot = () => {
   const [formData, setFormData] = useState({ content: "" });
+  const [isListening, setIsListening] = useState(false);
   const [messages, setMessages] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -16,6 +19,29 @@ const ChatBot = () => {
   const scrollToBottom = () => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const { transcript, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
+
+  const startListening = () => {
+    if (!browserSupportsSpeechRecognition) {
+      alert("Speech Recognition is not supported in this browser.");
+      return;
+    }
+    resetTranscript();
+    SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+    setIsListening(true);
+  };
+
+  const stopListening = () => {
+    SpeechRecognition.stopListening();
+    setIsListening(false);
+  };
+
+  useEffect(() => {
+    if (transcript && isListening) {
+      setFormData((prev) => ({ ...prev, content: transcript }));
+    }
+  }, [transcript]);
 
   useEffect(() => {
     scrollToBottom();
@@ -34,6 +60,8 @@ const ChatBot = () => {
     const userMessage = { role: "user", content: input };
     setMessages((prev) => [...prev, userMessage]);
     setFormData({ content: "" });
+    resetTranscript();
+    stopListening();
     setLoading(true);
 
     try {
@@ -69,7 +97,7 @@ const ChatBot = () => {
         setMessages([
           {
             role: "bot",
-            content: "Hey I am Major, Mridul AI Assistant. How can I help you?",
+            content: "Hey I am Major, Mridul AI Assistant. How can I help you? first response will take sometime due to server restarting reason 😓 ",
           },
         ]);
         greetedRef.current = true;
@@ -81,10 +109,16 @@ const ChatBot = () => {
 
   return (
     <>
-    {isOpen && <div className="backdrop-blur-sm w-full h-full fixed z-[49] top-0 left-0 right-0 bottom-0" onClick={()=>setIsOpen(false)}></div>}
+      {isOpen && (
+        <div
+          className="backdrop-blur-sm w-full h-full fixed z-[49] top-0 left-0 right-0 bottom-0"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
       <div className="fixed bottom-9 right-7 z-50 flex flex-col items-end gap-4">
         {isOpen && (
-          <div className="w-screen h-screen md:w-[380px] md:h-[500px] bg-white shadow-xl rounded-none md:rounded-xl flex flex-col overflow-hidden fixed top-0 left-0 bottom-0 right-0 md:relative z-[100]">
+          <div className="w-screen h-screen md:w-[480px] md:h-[500px] bg-white shadow-xl rounded-none md:rounded-xl flex flex-col overflow-hidden fixed top-0 left-0 bottom-0 right-0 md:relative z-[100]">
             <div className="bg-blue-600 text-white p-4 font-bold flex items-center justify-between">
               Mridul AI Assistant
               <span
@@ -95,22 +129,25 @@ const ChatBot = () => {
               </span>
             </div>
 
-            <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50">
+            <div
+              style={{ backgroundImage: 'url("/images/whatsbg.jpg")' }}
+              className="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50"
+            >
               {messages.map((msg, index) => (
                 <div
                   key={index}
-                  className={`p-3 rounded-lg max-w-[80%] text-sm ${
+                  className={`p-3 px-5 rounded-lg max-w-[80%] text-sm chatbot text-wrap ${
                     msg.role === "user"
                       ? "bg-blue-600 text-white self-end ml-auto"
                       : "bg-gray-200 text-gray-900 self-start mr-auto"
                   }`}
                 >
-                  {msg.content}
+                  {parse(msg.content)}
                 </div>
               ))}
 
               {loading && (
-                <div className="text-gray-500 animate-pulse bg-gray-100 p-2 rounded-lg w-fit">
+                <div className="text-gray-500 animate-pulse bg-gray-100 p-2  rounded-lg w-fit">
                   Typing...
                 </div>
               )}
@@ -119,8 +156,20 @@ const ChatBot = () => {
 
             <form
               onSubmit={handleSend}
-              className="border-t border-gray-300 p-2 flex items-center gap-1"
+              className="border-t border-gray-300 p-2 px-3 flex items-center gap-1"
             >
+              <div>
+                {isListening ? (
+                  <button type="button" className="h-8 w-8 mic relative z-50 rounded-full bg-blue-100 flex items-center text-lg justify-center text-blue-600" onClick={stopListening}>
+                    <FaMicrophoneAlt  />
+                    
+                  </button>
+                ) : (
+                  <button type="button" onClick={startListening} className="h-8 w-8 rounded-full bg-blue-100 text-lg flex items-center justify-center text-blue-600">
+                    <FaMicrophoneAltSlash  />
+                  </button>
+                )}
+              </div>
               <textarea
                 rows={1}
                 name="content"
