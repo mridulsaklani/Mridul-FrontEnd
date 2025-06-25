@@ -17,6 +17,7 @@ const  nunito = Nunito({
 });
 
 export default function RootLayout({ children }) {
+ 
   return (
     <html lang="en">
       
@@ -29,14 +30,16 @@ export default function RootLayout({ children }) {
         <AOSInit/>
     
       
-        <AnimatedCursor
-          innerSize={0}
-          outerSize={10}
-          color="37, 99, 235" 
-          outerAlpha={0.4}
-          innerScale={1.2}
-          outerScale={2}
-        />
+        
+            <AnimatedCursor
+              innerSize={0}
+              outerSize={10}
+              color="37, 99, 235"
+              outerAlpha={0.4}
+              innerScale={1.2}
+              outerScale={2}
+            />
+        
         {children}
        
         
