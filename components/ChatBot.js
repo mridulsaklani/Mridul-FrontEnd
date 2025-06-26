@@ -61,7 +61,7 @@ const ChatBot = () => {
     setMessages((prev) => [...prev, userMessage]);
     setFormData({ content: "" });
     resetTranscript();
-    stopListening();
+    
     setLoading(true);
 
     try {
@@ -80,6 +80,7 @@ const ChatBot = () => {
       ]);
     } finally {
       setLoading(false);
+      stopListening();
     }
   };
 
@@ -106,6 +107,15 @@ const ChatBot = () => {
       return openingNow;
     });
   };
+
+  useEffect(() => {
+  if (!isListening && transcript.trim()) {
+    const delay = setTimeout(() => {
+      handleSend();
+    }, 2000); 
+    return () => clearTimeout(delay); 
+  }
+}, [isListening]);
 
   return (
     <>
@@ -139,7 +149,7 @@ const ChatBot = () => {
                   className={`p-3 px-5 rounded-lg max-w-[80%] text-sm chatbot text-wrap ${
                     msg.role === "user"
                       ? "bg-blue-600 text-white self-end ml-auto"
-                      : "bg-gray-200 text-gray-900 self-start mr-auto"
+                      : "bg-gray-50 text-gray-900 self-start mr-auto"
                   }`}
                 >
                   {parse(msg.content)}
