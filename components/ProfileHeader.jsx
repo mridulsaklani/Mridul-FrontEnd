@@ -15,7 +15,7 @@ const ProfileHeader = () => {
       name: '',
       email: '',
       phone: '',
-      dob: '',
+     
       image: ''
     }
   )
@@ -69,7 +69,7 @@ const ProfileHeader = () => {
       name: userData?.name,
       email: userData?.email,
       phone: userData?.phone,
-      dob: userData?.dob,
+      
       image: userData?.image
     })
   }
@@ -81,7 +81,7 @@ const ProfileHeader = () => {
     formData.append("name", fromData.name);
     formData.append("email", fromData.email);
     formData.append("phone", fromData.phone);
-    formData.append("dob", fromData.dob);
+
 
     if (fromData.image) {
         formData.append("image", fromData.image);
@@ -146,23 +146,29 @@ const ProfileHeader = () => {
     <div className='max-w-7xl flex items-center m-auto py-24'>
       
       <div className="w-1/3">
-       <Image
+      {userData?.image ? <Image
        src={userData?.image}
        width={200}
        height={200}
         className="object-cover w-80 h-80 rounded-xl shadow-blue-400 shadow-xl"
         alt='User Image'
-       />
-      </div>
+       /> : <Image
+       src="/images/dummy.png"
+       width={200}
+       height={200}
+        className="object-cover w-80 h-80 rounded-xl shadow-blue-400 shadow-xl bg-white"
+        alt='User Image'
+       />} 
+      </div> 
       <div className="w-2/3 relative flex flex-col justify-center items-start gap-5" >
       
       <div className=' capitalize text-3xl font-bold text-blue-500'> Name: &nbsp;<span className='text-4xl text-white tracking-wide'> {userData?.name} </span></div>
       <div className=' text-3xl font-bold text-blue-500'>Email: &nbsp;<span className='text-4xl text-white tracking-wide'> {userData?.email} </span></div>
       <div className=' text-3xl font-bold text-blue-500' > Phone: &nbsp;<span className='text-4xl text-white tracking-wide'> {userData?.phone} </span></div>
-      <div className=' text-3xl font-bold text-blue-500'> DOB: &nbsp;<span className='text-4xl text-white tracking-wide'> {date?.toDateString()} </span></div >
+    
       <div className='absolute top-0 right-0'>
         
-      <button className='bg-blue-600 px-5 py-1.5 rounded-lg text-lg text-white flex justify-center items-center gap-2' onClick={OpenPopup}> <MdEdit />Edit Profile</button>
+      {/* <button className='bg-blue-600 px-5 py-1.5 rounded-lg text-lg text-white flex justify-center items-center gap-2' onClick={OpenPopup}> <MdEdit />Edit Profile</button> */}
       </div>
       </div>
 

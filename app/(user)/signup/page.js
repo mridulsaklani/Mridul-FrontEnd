@@ -14,7 +14,6 @@ const Page = () => {
     email: "",
     phone: "",
     password: "",
-    dob: "",
     image: null,
   });
 
@@ -46,7 +45,7 @@ const Page = () => {
     formDataToSend.append("email", formData.email);
     formDataToSend.append("phone", formData.phone);
     formDataToSend.append("password", formData.password);
-    formDataToSend.append("dob", formData.dob);
+    
 
     if (formData.image) {
       formDataToSend.append("image", formData.image);
@@ -66,7 +65,7 @@ const Page = () => {
             email: "",
             phone: "",
             password: "",
-            dob: "",
+           
             image: null,
           })
           setTimeout(() => {
@@ -153,25 +152,18 @@ const Page = () => {
             </div>
           </div>
           <div className="flex flex-wrap md:flex-nowrap gap-3">
-            <input
-              type="date"
-              className="w-full lg:w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
-              value={formData.dob}
-              onChange={handleChange}
-              name="dob"
-              id="dob"
-              placeholder="Date of Birth"
-            />
+           
             <input
               type="file"
-              className="w-full lg:w-1/2 bg-transparent text-white p-3 rounded-md outline-none border"
+              className="w-full lg:w-full bg-transparent text-white p-3 rounded-md outline-none border"
               onChange={imageHandler}
               name="image"
               id="image"
             />
           </div>
           <button
-            className="py-3 px-8 bg-blue-600 text-white rounded-lg text-lg flex gap-2 items-center justify-center"
+          disabled={formData.name === "" || formData.email === "" || formData.phone === "" || formData.password === ""}
+            className="py-3 px-8 bg-blue-600 disabled:bg-blue-400 text-white rounded-lg text-lg flex gap-2 items-center justify-center"
             type="submit"
           >
             {isLoading ? "Submitting..." : "Submit"}

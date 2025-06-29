@@ -2,9 +2,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { FaArrowRight, FaXmark } from "react-icons/fa6";
 
 import { LuLogIn } from "react-icons/lu";
-import { FaXmark } from "react-icons/fa6";
+
 import { usePathname } from "next/navigation";
 import { PiSignOutBold } from "react-icons/pi";
 import { FaEye, FaEyeSlash, FaLock, FaUser } from "react-icons/fa";
@@ -189,7 +190,8 @@ const Navbar = () => {
               <p className="text-red-500">{errMessage}</p>
             </div>
             <button
-              className="disabled:bg-blue-400 p-2 md:p-3 rounded-lg bg-blue-600 text-white"
+            disabled={signInData.email === "" || signInData.password === ""}
+              className=" p-2 md:p-3 rounded-lg bg-blue-600 disabled:bg-blue-400 text-white"
               type="submit"
             >
               {isLoading ? "Loading..." : "Log In"}
@@ -365,16 +367,16 @@ const Navbar = () => {
               {isLoggedIn ? (
                 <button
                   onClick={handleLogout}
-                  className="py-3 px-8 rounded-lg bg-blue-600 text-white hover:bg-white hover:text-blue-600 transition-all flex  gap-2 items-center"
+                  className="py-3 px-8 rounded-lg btn-bg transition-all flex  gap-2 items-center"
                 >
-                  <PiSignOutBold className="text-xl" /> Log Out
+                   Log Out <FaArrowRight className="text-lg btn-arrow" />
                 </button>
               ) : (
                 <button
                   onClick={() => setShowSignUp(true)}
-                  className="py-3 px-8 rounded-lg bg-blue-600 text-white hover:bg-white hover:text-blue-600 transition-all flex  gap-2 items-center"
+                  className="py-3 px-8 rounded-lg btn-bg transition-all flex  gap-2 items-center"
                 >
-                  <LuLogIn className="text-xl" /> Log In
+                  Log In <FaArrowRight className="text-lg btn-arrow" />
                 </button>
               )}
             </div>

@@ -170,13 +170,13 @@ const ChatBot = () => {
             >
               <div>
                 {isListening ? (
-                  <button type="button" className="h-8 w-8 mic relative z-50 rounded-full bg-blue-100 flex items-center text-lg justify-center text-blue-600" onClick={stopListening}>
+                  <button type="button" disabled={loading} className={`h-8 w-8 ${!loading && "mic"} relative z-50 rounded-full bg-blue-100 flex items-center text-lg justify-center text-blue-600 disabled:text-blue-300`} onClick={stopListening}>
                     <FaMicrophoneAlt  />
                     
                   </button>
                 ) : (
-                  <button type="button" onClick={startListening} className="h-8 w-8 rounded-full bg-blue-100 text-lg flex items-center justify-center text-blue-600">
-                    <FaMicrophoneAltSlash  />
+                  <button type="button"  onClick={startListening} className="h-8 w-8 rounded-full bg-blue-100 text-lg flex items-center justify-center text-blue-600 disabled:text-blue-300">
+                    <FaMicrophoneAltSlash />
                   </button>
                 )}
               </div>

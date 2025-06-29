@@ -5,6 +5,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --dark-color: #2563EB;
+  --accent-color: #9abaff;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -274,6 +276,32 @@ z-index: 10;
   background-color: #0000;
   height: 250%;
   transition: all .6s linear;
+}
+
+.btn-bg {
+    position: relative;
+    background-image: linear-gradient(to right, var(--dark-color) 0%, var(--accent-color) 50%, var(--dark-color) 100%);
+    background-size: 200% auto;
+    border-radius: 100px;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    cursor: pointer;
+    padding: 11px 34px;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.btn-bg:hover {
+    background-position: right center;
+}
+
+.btn-bg:hover .btn-arrow {
+    transform: rotate(0deg);
+}
+
+.btn-arrow {
+    transform: rotate(-50deg);
+    transition: all 0.4s ease-in-out;
 }
 
 
