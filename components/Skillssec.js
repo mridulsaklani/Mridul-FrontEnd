@@ -3,6 +3,7 @@ import React,{useEffect} from "react";
 import Image from "next/image";
 import AOS from "aos";
 import 'aos/dist/aos.css';
+import Link from "next/link";
 
 const Skills = () => {
 
@@ -29,21 +30,21 @@ const Skills = () => {
                 AI & ML
               </h3>
             </div>
-            <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 lg:p-4 md:py-4 flex items-center justify-center">
+            <Link href={'https://www.python.org'} target="_blank" className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 lg:p-4 md:py-4 flex items-center justify-center">
               <Image className="skill-img transition-all" src="/images/python.png" width={100} height={100} alt="python" data-aos="zoom-in" />
-            </div>
-            <div className="border-right px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center" >
+            </Link>
+            <Link href={'https://numpy.org'} target="_blank" className="border-right px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center" >
             <Image className="skill-img transition-all scale-110" src="/images/numpy.png" width={100} height={100} alt="numpy" data-aos="zoom-in" data-aos-delay="200"/>
-            </div>
-            <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
+            </Link>
+            <Link href={'https://www.tensorflow.org'} target="_blank" className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/TensorFlow.png" width={100} height={100} alt="TensorFlow" data-aos="zoom-in" data-aos-delay="400"/>
-            </div>
-            <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
+            </Link>
+            <Link href={'https://keras.io'}target="_blank" className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all rounded-lg scale-60" src="/images/Keras.png" width={100} height={100} alt="Keras" data-aos="zoom-in" data-aos-delay="600"/>
-            </div>
-            <div className=" px-4 py-12 md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
+            </Link>
+            <Link href={'https://pytorch.org'} target="_blank" className=" px-4 py-12 md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img rounded-xl transition-all" src="/images/PyTorch.png" width={100} height={100} alt="PyTorch" data-aos="zoom-in" data-aos-delay="800"/>
-            </div>
+            </Link>
           </div>
           <div className="background grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 p-8 rounded-lg">
           <div className="border-white p-4 flex items-center justify-center">
@@ -51,12 +52,12 @@ const Skills = () => {
                 AI & ML
               </h3>
             </div>
-            <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
+            <Link href={'https://opencv.org'} target="_blank" className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/OpenCV.png" width={100} height={100} alt="OpenCV" data-aos="zoom-in" />
-            </div>
-            <div className="  px-4 py-12  md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
+            </Link>
+            <Link href={'https://scipy.org'} target="_blank" className="  px-4 py-12  md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/scipy.png" width={100} height={100} alt="scipy" data-aos="zoom-in" />
-            </div>
+            </Link>
           
             
           </div>
@@ -88,9 +89,9 @@ const Skills = () => {
                 Back End Skills
               </h3>
             </div>
-            <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
+            <Link href={'https://nodejs.org'} target="_blank" className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/nodejs.png" width={100} height={100} alt="nodejs" data-aos="zoom-in" />
-            </div>
+            </Link>
           
             <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/express-js.png" width={100} height={100} alt="express js" data-aos="zoom-in" data-aos-delay="200"/>
