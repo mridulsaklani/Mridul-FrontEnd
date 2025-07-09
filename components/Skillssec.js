@@ -93,15 +93,15 @@ const Skills = () => {
             <Image className="skill-img transition-all" src="/images/nodejs.png" width={100} height={100} alt="nodejs" data-aos="zoom-in" />
             </Link>
           
-            <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
+            <Link href={'https://expressjs.com'} target="_blank" className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/express-js.png" width={100} height={100} alt="express js" data-aos="zoom-in" data-aos-delay="200"/>
-            </div>
-            <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
-            <Image className="skill-img transition-all" src="/images/fastapi.svg" width={100} height={100} alt="express js" data-aos="zoom-in" data-aos-delay="200"/>
-            </div>
-            <div className=" px-4 py-12  md:border-b-0 border-white/45 p-4 flex md:py-4 items-center justify-center">
-            <Image className="skill-img transition-all" src="/images/java.png" width={100} height={100} alt="express js" data-aos="zoom-in" data-aos-delay="200"/>
-            </div>
+            </Link>
+            <Link href={'https://fastapi.tiangolo.com'} target="_blank" className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
+            <Image className="skill-img transition-all" src="/images/fastapi.svg" width={100} height={100} alt="fastapi" data-aos="zoom-in" data-aos-delay="200"/>
+            </Link>
+            <Link href={'https://spring.io'} target="_blank" className=" px-4 py-12  md:border-b-0 border-white/45 p-4 flex md:py-4 items-center justify-center">
+            <Image className="skill-img transition-all" src="/images/java.png" width={100} height={100} alt="java" data-aos="zoom-in" data-aos-delay="200"/>
+            </Link>
           </div>
           <div className="  skill-border grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 p-8 rounded-lg">
             <div className="border-right p-4 flex items-center justify-center">
@@ -109,17 +109,14 @@ const Skills = () => {
                 Data Base Skills
               </h3>
             </div>
-            <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
+            <Link href={'https://www.mongodb.com'} target="_blank" className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
               <Image className="skill-img transition-all" src="/images/mongo-db.png" width={100} height={100} alt="mongodb" data-aos="zoom-in" />
-            </div>
-            <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
+            </Link>
+            <Link href={'https://www.postgresql.org'} target="_blank" className="  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/postgresq.png" width={100} height={100} alt="postgresq" data-aos="zoom-in" data-aos-delay="200"/>
             
-            </div>
-            <div className=" px-4 py-12  md:border-b-0 border-white/30 p-4 flex items-center md:py-4 justify-center">
-            <Image className="skill-img transition-all" src="/images/MongoPython.png" width={100} height={100} alt="MongoPython" data-aos="zoom-in" data-aos-delay="200"/>
-            
-            </div>
+            </Link>
+           
            
           </div>
           <div className=" background grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 p-8 rounded-lg">
@@ -128,22 +125,22 @@ const Skills = () => {
                 Other Skills
               </h3>
             </div>
-            <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
+            <Link href={'https://www.python.org'} target="_blank" className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
               <Image className="skill-img transition-all" src="/images/python.png" width={100} height={100} alt="python" data-aos="zoom-in" />
-            </div>
-            <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
+            </Link>
+            <Link href={'https://www.typescriptlang.org'} target="_blank" className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/typescript.png" width={100} height={100} alt="typescript" data-aos="zoom-in" data-aos-delay="200"/>
             
-            </div>
-            <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
+            </Link>
+            <Link href={'https://isocpp.org/get-started'} target="_blank" className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/c-language.png" width={100} height={100} alt="c++" data-aos="zoom-in" data-aos-delay="400"/>
-            </div>
-            <div className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
+            </Link>
+            <Link href={'https://tailwindcss.com'} target="_blank" className="border-white  px-4 py-12 border-b-[1px] md:border-b-0 border-white/45 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/tailwind.png" width={100} height={100} alt="tailwind" data-aos="zoom-in" data-aos-delay="600"/>
-            </div>
-            <div className=" px-4 py-12  md:border-b-0 border-white/30 p-4 flex items-center md:py-4 justify-center">
+            </Link>
+            <Link href={'https://wordpress.com'} target="_blank" className=" px-4 py-12  md:border-b-0 border-white/30 p-4 flex items-center md:py-4 justify-center">
             <Image className="skill-img transition-all" src="/images/wordpress.png" width={100} height={100} alt="wordpress" data-aos="zoom-in" data-aos-delay="800"/>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
