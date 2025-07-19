@@ -67,21 +67,21 @@ const Skills = () => {
                 Front End Skills
               </h3>
             </div>
-            <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
+            <Link href={'https://html.com'} target="_blank" className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
               <Image className="skill-img transition-all" src="/images/html.png" width={100} height={100} alt="html" data-aos="zoom-in" />
-            </div>
-            <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center" >
+            </Link>
+            <Link href={'https://web.dev/learn/css'} target="_blank" className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center" >
             <Image className="skill-img transition-all" src="/images/css.png" width={100} height={100} alt="css" data-aos="zoom-in" data-aos-delay="200"/>
-            </div>
-            <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
+            </Link>
+            <Link href={'https://tc39.es/ecma262'} target="_blank" className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/javascript.png" width={100} height={100} alt="JavaScript" data-aos="zoom-in" data-aos-delay="400"/>
-            </div>
-            <div className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
+            </Link>
+            <Link href={'https://react.dev'} target="_blank" className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/react.png" width={100} height={100} alt="react" data-aos="zoom-in" data-aos-delay="600"/>
-            </div>
-            <div className=" p-4 md:py-4 flex  px-4 py-12  md:border-b-0 border-white/30 items-center justify-center">
+            </Link>
+            <Link href={'https://nextjs.org'} target="_blank" className=" p-4 md:py-4 flex  px-4 py-12  md:border-b-0 border-white/30 items-center justify-center">
             <Image className="skill-img rounded-xl transition-all" src="/images/nextjs.jpeg" width={100} height={100} alt="nextjs" data-aos="zoom-in" data-aos-delay="800"/>
-            </div>
+            </Link>
           </div>
           <div className="background grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 p-8 rounded-lg">
           <div className="border-white p-4 flex items-center justify-center">
@@ -112,7 +112,7 @@ const Skills = () => {
             <Link href={'https://www.mongodb.com'} target="_blank" className="border-right  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
               <Image className="skill-img transition-all" src="/images/mongo-db.png" width={100} height={100} alt="mongodb" data-aos="zoom-in" />
             </Link>
-            <Link href={'https://www.postgresql.org'} target="_blank" className="  px-4 py-12 border-b-[1px] md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
+            <Link href={'https://www.postgresql.org'} target="_blank" className="  px-4 py-12  md:border-b-0 border-white/30 p-4 md:py-4 flex items-center justify-center">
             <Image className="skill-img transition-all" src="/images/postgresq.png" width={100} height={100} alt="postgresq" data-aos="zoom-in" data-aos-delay="200"/>
             
             </Link>

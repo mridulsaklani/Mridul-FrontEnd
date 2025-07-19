@@ -22,22 +22,24 @@ const MyHobbie = () => {
           <span className="border-blue-600 border-4 w-20 rounded-full flex flex-col"></span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg">
+        <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg hover:bg-slate-200/10 transition-all duration-300 group">
+         
                 <Image
-               
+                
                 src="/images/Quantom.webp"
                 width={250}
                 height={250}
                 alt="guitar"
-                data-aos="zoom-in"
+              data-aos="zoom-in"
                 
-                >
+                />
+                 
 
-                </Image>
-                <h4 className="text-2xl text-white text-center">Quantom Physics</h4>
+              
+                <h4 className="text-2xl text-white text-center">Quantum Physics</h4>
 
             </div>
-        <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg">
+        <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg hover:bg-slate-200/10 transition-all duration-300">
                 <Image
                
                 src="/images/Space.webp"
@@ -52,7 +54,7 @@ const MyHobbie = () => {
                 <h4 className="text-2xl text-white text-center">Universe</h4>
 
             </div>
-        <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg">
+        <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg hover:bg-slate-200/10 transition-all duration-300">
                 <Image
                
                 src="/images/Ethical.webp"
@@ -64,11 +66,11 @@ const MyHobbie = () => {
                 >
 
                 </Image>
-                <h4 className="text-2xl text-white text-center">Ethical Heacking</h4>
+                <h4 className="text-2xl text-white text-center">Ethical Hacking</h4>
 
             </div>
 
-            <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg">
+            <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg hover:bg-slate-200/10 transition-all duration-300">
                 <Image
                 
                 src="/images/guitar.png"
@@ -80,10 +82,10 @@ const MyHobbie = () => {
                 >
 
                 </Image>
-                <h4 className="text-2xl text-white text-center">Playning Guitar</h4>
+                <h4 className="text-2xl text-white text-center">Playing Guitar</h4>
 
             </div>
-            <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg">
+            <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg hover:bg-slate-200/10 transition-all duration-300">
                 <Image
                 
                 src="/images/Singing.webp"
@@ -98,7 +100,7 @@ const MyHobbie = () => {
                 <h4 className="text-2xl text-white text-center">Singing</h4>
 
             </div>
-            <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg">
+            <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg hover:bg-slate-200/10 transition-all duration-300">
                 <Image
                className="aspect-square object-contain"
                 src="/images/camping.webp"
@@ -113,7 +115,7 @@ const MyHobbie = () => {
                 <h4 className="text-2xl text-white text-center">Tracking</h4>
 
             </div>
-            <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg">
+            <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg hover:bg-slate-200/10 transition-all duration-300">
                 <Image
                
                 src="/images/gym.webp"
@@ -128,7 +130,7 @@ const MyHobbie = () => {
                 <h4 className="text-2xl text-white text-center">GYM</h4>
 
             </div>
-            <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg">
+            <div className="skill-border flex justify-center items-center gap-5 flex-col p-8 rounded-lg hover:bg-slate-200/10 transition-all duration-300">
                 <Image
                
                 src="/images/aI.webp"

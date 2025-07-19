@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
+import { v4 as uuidv4 } from 'uuid';
 import { TbMessageChatbot } from "react-icons/tb";
 import { FaPaperPlane, FaMicrophoneAlt, FaMicrophoneAltSlash } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
@@ -10,6 +11,7 @@ import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognitio
 const ChatBot = () => {
   const [formData, setFormData] = useState({ content: "" });
   const [isListening, setIsListening] = useState(false);
+  const [userUuid, setUuid] = useState(null)
   const [messages, setMessages] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -67,7 +69,7 @@ const ChatBot = () => {
     try {
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_AI_SERVER_URL}/prompt`,
-        { content: input }
+        { uuid: userUuid,content: input }
       );
 
       const botResponse = res?.data?.step || "No response from chatbot.";
@@ -83,6 +85,21 @@ const ChatBot = () => {
       stopListening();
     }
   };
+
+  useEffect(() => {
+
+    const localUUID = window.localStorage.getItem('uuid')
+
+    if(!localUUID){
+    const uuid = uuidv4()
+    window.localStorage.setItem("uuid", uuid)
+    }
+    
+    setUuid(localUUID)
+
+
+  }, [])
+  
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
